@@ -22,6 +22,11 @@
 .search__container {
   display: flex;
   margin-top: 88px;
-  width: 100%;
+  width: 608px;
+  
   height: 64px;
+}
+.search__button {
+    width: 168px;
+    background-color: #2F71E5;
 }
