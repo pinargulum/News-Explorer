@@ -5,6 +5,7 @@ import Search from "../Search/Search";
 function App() {
   return (
     <div className="page">
+        <div className="page__overlay" />
       <div className="page__content">
         <Header />
         <Search />

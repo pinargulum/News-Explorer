@@ -1,23 +1,31 @@
 .page {
   display: flex;
-  max-width: 1654px;
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 950px;
   color: #ffffff;
-  margin: auto;
+  margin: 0 auto;
   padding: 0;
-  height: 974px;
+  background-position: center;
   background-image: url("src/assets/backgroundimage.png");
-  background-size:cover;
-  background-color: transparent;
+  background-size: cover;
   background-repeat: repeat;
-  
+}
+.page__overlay {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 .page__content {
   display: flex;
-  max-width: 1654px;
-  height: 100%;
+  position: relative;
   width: 100%;
-  
-  margin: auto;
-  padding: 0 104px 0 104px;
-  
+  z-index: 2;
+  text-align: center;
+  padding: 0;
 }
