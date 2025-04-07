@@ -2,7 +2,8 @@ import "../Search/Search.css"
 
 function Search() {
     return(
-        <div className="page__overlay">
+        <div className="search__section">
+        <div className="page__overlay" />
         <div className="search__info">
        
         <h2 className="search__title">What's going on in the world?</h2>
