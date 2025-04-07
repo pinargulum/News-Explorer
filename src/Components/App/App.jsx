@@ -2,6 +2,7 @@ import "../App/App.css";
 import Header from "../Header/Header";
 import Search from "../Search/Search";
 import About from "../About/About";
+import Footer from "../Footer/Footer"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <Search />
         <About />
+        <Footer />
       </div>
     </div>
   );
