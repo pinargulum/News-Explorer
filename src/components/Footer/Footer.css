@@ -5,6 +5,8 @@
     position: absolute;
     align-items: center;
     top: 1200px;
+    padding-top: 32px;
+    padding-bottom: 26px;
   
 }
 .footer__year {
