@@ -1,13 +1,13 @@
 import "../Header/Header.css"
 
-function Header() {
+function Header({ signinModal }) {
     return(
         <div className="header">
         < div className="header__container">
         <div className="header__logo">NewsExplorer</div>
         <div className="header__nav">
             <a href="/" className="header__home-link">Home</a>
-            <button className="header__sign-button" type="button">Sign in</button>
+            <button onClick={signinModal} className="header__sign-button" type="submit">Sign in</button>
         </div>
         </div>
         </div>

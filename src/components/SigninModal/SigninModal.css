@@ -1,0 +1,14 @@
+.second__button {
+  display: flex;
+  position: absolute;
+  width: 358px;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  bottom: 20px;
+  color: #2f71e5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
