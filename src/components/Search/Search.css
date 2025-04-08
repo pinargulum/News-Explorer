@@ -13,7 +13,7 @@
   position: absolute;
   color: white;
   font-family: Roboto;
-  margin: 55px 416px 288px 416px;
+  margin: 0 416px 0 416px;
   z-index: 2;
 }
 .page__overlay {
@@ -22,13 +22,13 @@
   height: 576px;
   top: 0px;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 .search__title {
   text-align: left;
   flex-wrap: wrap;
-  margin-top: 80px;
+  margin-top: 160px;
   height: 128px;
   font-size: 60px;
   font-weight: 400;

@@ -19,7 +19,7 @@
   border-radius: 20px;
   border-color: #ffffff;
   background-color: #ffffff;
-  height: 383px;
+  height: 380px;
   width: 430px;
   padding: 0px 36px 0px 36px;
   box-sizing: border-box;
@@ -104,15 +104,10 @@
   position: relative;
   border: none;
   background-image: url("/src/assets/modalClose.png");
-  top: -100px;
+  top: -115px;
   left: 400px;
   background-color: transparent;
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;
-}
-@media screen and (max-width: 800px) {
-  .modal__content_type_form {
-    margin-left: 150px;
-  }
 }
