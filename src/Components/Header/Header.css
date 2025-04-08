@@ -40,11 +40,11 @@
 }
 .header__home-link {
   width: 49px;
-  padding: 11.82px 12px 15.12px 12px;
+  padding: 26px 12px 28px 12px;
   font-weight: 500;
   font-size: 18px;
-  border-bottom: solid 1px;
- 
+  border-bottom: solid 2px white;
+  
   background-color: transparent;
   color: white;
   text-decoration: none;
