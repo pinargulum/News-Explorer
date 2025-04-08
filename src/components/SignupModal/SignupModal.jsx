@@ -1,25 +1,22 @@
-import "../SigninModal/SigninModal.css";
-
+import "../SignupModal/SignupModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import SignupModal from "../SignupModal/SignupModal";
-
-const SigninModal = ({ isOpen, onClose, signupModal }) => {
+const SignupModal = ({ isOpen, onClose, signinModal }) => {
   return (
     <ModalWithForm
-      titleText="Sign in"
-      buttonText="Sign in"
+      titleText="Sign up"
+      buttonText="Sign up"
       isOpen={isOpen}
       onClose={onClose}
     >
       <label
         className="modal__label"
-        htmlFor="Email"
+        htmlFor="email"
       >
         Email:
         <input
-          type="email"
-          id="Email"
+          id="email"
           name="email"
+          type="email"
           className="modal__input"
           placeholder="Enter email"
           required
@@ -27,27 +24,42 @@ const SigninModal = ({ isOpen, onClose, signupModal }) => {
       </label>
       <label
         className="modal__label"
-        htmlFor="Password"
+        htmlFor="password"
       >
         Password:
         <input
-          type="password"
+          id="password"
           name="password"
-          id="Password"
+          type="password"
           className="modal__input"
           placeholder="Enter password"
           required
         />
       </label>
-
+      <label
+        className="modal__label"
+        htmlFor="username"
+      >
+        Username:
+        <input
+          id="username"
+          className="modal__input"
+          name="username"
+          type="text"
+          placeholder="Enter your username"
+          required
+        />
+      </label>
+     
       <button
-      onClick={signupModal}
+        onClick={signinModal}
         className="second__button"
         type="button"
       >
-        or Sign up
+        or Sign in
       </button>
     </ModalWithForm>
   );
 };
-export default SigninModal;
+
+export default SignupModal;
