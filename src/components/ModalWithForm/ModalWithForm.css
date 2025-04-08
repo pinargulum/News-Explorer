@@ -79,27 +79,6 @@
   justify-content: center;
   font-size: 18px;
 }
-.modal__submit:hover:not(:disabled) {
-  opacity: 0.8;
-  cursor: pointer;
-  background-color: #2f71e5;
-}
-
-.modal__submit_disabled {
-  color: rgba(0, 0, 0, 0.2);
-  border: 1px solid;
-  cursor: default;
-  border-radius: 2px;
-}
-.modal__submit_disabled:hover {
-  color: rgba(0, 0, 0, 0.2);
-  opacity: 1;
-  cursor: default;
-}
-.form__error_visible {
-  border-bottom-color: #ff0000;
-  width: 358px;
-}
 
 .modal__close-button_type_form {
   position: relative;
