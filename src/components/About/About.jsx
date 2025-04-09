@@ -12,13 +12,16 @@ function About() {
       <div className="author__info">
         <h2 className="author__title">About the author</h2>
         <p className="about__author">
-          This block describes the project author. Here you should indicate your
-          name, what you do, and which development technologies you know.
+          My name is Pinar, and I amm a Full-Stack Developer. I have experience
+          with JavaScript, HTML, CSS, React.js, Express.js, Git Bash, and
+          MongoDB.
         </p>
 
         <p className="about__author">
-          You can also talk about your experience with TripleTen, what you
-          learned there, and how you can help potential customers.
+          I recently completed the TripleTen Software Engineering Bootcamp. It
+          was a challenging journey, but in the end, it was absolutely worth it.
+          I started the program with no prior knowledge, and I have learned
+          everything from the ground up through this experience.
         </p>
       </div>
     </div>
