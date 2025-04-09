@@ -7,6 +7,7 @@ const SignupModal = ({ isOpen, onClose, signinModal }) => {
       buttonText="Sign up"
       isOpen={isOpen}
       onClose={onClose}
+       modifierClass="signup"
     >
       <label
         className="modal__label"
@@ -31,7 +32,7 @@ const SignupModal = ({ isOpen, onClose, signinModal }) => {
           id="password"
           name="password"
           type="password"
-          className="modal__input"
+           className="modal__input"
           placeholder="Enter password"
           required
         />
