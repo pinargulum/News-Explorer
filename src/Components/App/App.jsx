@@ -1,7 +1,8 @@
 import "../App/App.css";
 import { useState } from "react";
+import Main from "../Main/Main";
 import Header from "../Header/Header";
-import Search from "../Search/Search";
+import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
@@ -22,7 +23,8 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header signinModal={signinModal} />
-        <Search />
+        <Main />
+        <SearchForm />
         <About />
         <SigninModal
           isOpen={activeModal === "signin"}
