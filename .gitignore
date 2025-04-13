@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 # Logs
 logs
 *.log
@@ -23,6 +26,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 =======
 # Logs
 logs
@@ -49,3 +53,5 @@ dist-ssr
 *.sln
 *.sw?
 >>>>>>> 70ee8059e4970e69772eefa807b66984742908f3
+=======
+>>>>>>> main
