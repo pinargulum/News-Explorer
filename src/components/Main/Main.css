@@ -38,4 +38,33 @@
     border-radius: 80px;
     border: none;
   }
-  
+  .message__section {
+    display: flex;
+    margin-top: 86px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .message__title {
+    font-size: 26px;
+    font-weight: 400px;
+    margin-top: 31.5px;
+    color: #BCBFB6;
+    margin-bottom: 0;
+  }
+  .message__text {
+    font-size: 18px;
+   line-height: 24px;
+    width: 200px;
+    height: 48px;
+    color: #BCBFB6;
+    text-align: center;
+  }
+  .error__message {
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    color: #BCBFB6;
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }

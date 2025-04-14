@@ -22,41 +22,14 @@ const getNews = async (query) => {
   ).then(checkResponse);
 };
 
-const fakeUrl = "https://reqres.in/api";
-
-function registerUser(email, password, username) {
-  console.log("registerUser inputs:", email, password, username);
-  const userData = { email, password, username };
-  localStorage.setItem("registeredUser", JSON.stringify(userData));
-  return Promise.resolve({ message: "User registerd" })
-  .then(checkResponse)
-}
 
 
 
 
-function loginUser(email, password) {
-  return fetch(`${fakeUrl}/signin`, {
-    method: "POST",
-    headers: { "Content-Type": "application/Json" },
-    body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
-}
-export const getCurrentUser = (token) => {
-  return fetch(`${fakeUrl}/users/me`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  }).then(checkResponse);
-};
 
 const Api = {
   getNews,
-  registerUser,
-  loginUser,
-  getCurrentUser,
+ 
 };
 export default Api;
 

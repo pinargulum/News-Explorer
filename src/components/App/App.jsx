@@ -8,6 +8,7 @@ import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import Footer from "../Footer/Footer";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext.jsx";
+import { registerUser, loginUser } from "../utils/firebaseAuth.js";
 
 import Api from "../utils/api.js";
 
@@ -15,6 +16,8 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [results, setResults] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, seterror] = useState("");
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -23,8 +26,12 @@ function App() {
     if (!query.trim()) {
       alert("please enter a keyword");
     }
+    setIsLoading(true);
+    seterror("");
+    setIsSearched(false);
     Api.getNews(query)
       .then((data) => {
+        setIsLoading(false);
         setResults(data.articles);
         setIsSearched(true);
       })
@@ -33,48 +40,31 @@ function App() {
       });
   }
   // register user
-  function handleSignupForm({ email, password, username }) {
-    
-    Api.registerUser(email, password, username)
-      .then((data) => {
-        console.log("user registered");
+
+  function handleSignupForm(email, password, username) {
+    registerUser(email, password, username)
+      .then((userCredential) => {
+        console.log("user created", userCredential.user);
+        console.log("userNameSet:", userCredential.user.displayName);
+
         closeActiveModal();
       })
       .catch((err) => {
-        console.error(err);
+        console.error("Signup error:", err.code, err.message);
       });
   }
   //login user
   const handleSigninForm = (email, password) => {
-    if ((!email, !password)) {
-      return;
-    }
-    Api.loginUser(email, password)
-      .then((data) => {
-        localStorage.setItem("token", "fake-jwt-token");
-        getUserData(data);
-        setIsLoggedIn(true);
-        setCurrentUser(currentUser);
+    loginUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("User logged in:", user);
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error("Signin error:", err.code, err.message);
+      });
   };
-
-  function getUserData() {
-    const token = localStorage.getItem("token");
-    Api.getCurrentUser(token)
-      .then((data) => {
-        setIsLoggedIn(true);
-        setCurrentUser(data);
-      })
-      .catch(console.error);
-  }
-  useEffect(() => {
-    const data = localStorage.getItem("token");
-    if (data) {
-      return getUserData(data);
-    }
-  }, []);
 
   const signinModal = () => {
     setActiveModal("signin");
@@ -97,15 +87,21 @@ function App() {
                 <Main
                   results={results}
                   isSearched={isSearched}
+                  isLoading={isLoading}
                   handleSearch={handleSearch}
                 />
               }
+            />
+            <Route
+              path="/signup"
+              element={<SigninModal />}
             />
           </Routes>
           <SigninModal
             isOpen={activeModal === "signin"}
             onClose={closeActiveModal}
             signupModal={signupModal}
+            handleSigninForm={handleSigninForm}
           />
           <SignupModal
             isOpen={activeModal === "signup"}

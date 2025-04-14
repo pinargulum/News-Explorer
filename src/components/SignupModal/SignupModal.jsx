@@ -20,10 +20,10 @@ const SignupModal = ({ isOpen, onClose, signinModal, handleSignupForm }) => {
       });
     }
   }, [isOpen]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  function handleSubmit(evt) {
+    evt.preventDefault();
     handleSignupForm(values.email, values.password, values.username);
-  };
+  }
   return (
     <ModalWithForm
       titleText="Sign up"
