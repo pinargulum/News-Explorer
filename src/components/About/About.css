@@ -1,0 +1,27 @@
+.about__section {
+    display: flex;
+    height: 624px;
+    width: 100%;
+    margin-top: 80px;
+    padding: 0px;
+  }
+  .author__avatar {
+    width: 464px;
+    height: 464px;
+    border-radius: 50%;
+  }
+  
+  .author__info {
+    width: 600px;
+    margin-left: 56px;
+    text-align: left;
+  }
+  .author__title {
+    font-size: 40px;
+    color: black;
+  }
+  .about__author {
+    font-size: 18px;
+    color: black;
+  }
+  

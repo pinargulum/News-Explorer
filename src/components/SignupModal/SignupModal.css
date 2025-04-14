@@ -1,0 +1,17 @@
+.modal_content_signup_form {
+    margin: 193px auto;
+    border: solid 1px;
+    border-radius: 20px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    height: 458px;
+    width: 430px;
+    padding: 12px 28px 36px 28px;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    position: relative;
+    color: black;
+  }
+  

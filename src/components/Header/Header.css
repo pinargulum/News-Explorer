@@ -1,0 +1,56 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    position: absolute;
+    width: 1440px;
+    padding: 0;
+    height: 80px;
+    z-index: 2;
+    border-bottom: solid 1px;
+    border-color: rgba(196, 196, 196, 0.2);
+    margin: 0 auto;
+  }
+  .header__container {
+    display: flex;
+    width: 250px;
+    color: white;
+  }
+  .header__logo {
+    font-size: 24px;
+    margin: 30px 0px 26px 104px;
+    font-weight: 700;
+  }
+  .header__nav {
+    display: flex;
+    flex-direction: row;
+    font-family: Roboto;
+    align-items: center;
+    color: white;
+    gap: 42px;
+    margin-right: 104px;
+  }
+  
+  .header__sign-button {
+    width: 176px;
+    padding: 11.82px 12px 15.12px 12px;
+    font-weight: 500;
+    font-size: 18px;
+    outline: none;
+    border: solid 1px;
+    border-radius: 25px;
+    color: white;
+    background-color: transparent;
+  }
+  .header__home-link {
+    outline: none;
+    width: 49px;
+    padding: 26px 12px 28px 12px;
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: solid 2px white;
+    color: white;
+    text-decoration: none;
+  }
+  

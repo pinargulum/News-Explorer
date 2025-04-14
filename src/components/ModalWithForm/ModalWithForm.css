@@ -1,0 +1,96 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    z-index: 999;
+    margin: auto;
+  }
+  .modal_opened {
+    visibility: visible;
+  }
+  .modal__content_type_form {
+    margin: 207px auto;
+    border: solid 1px;
+    border-radius: 16px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    height: 380px;
+    width: 430px;
+    padding: 0px 36px 0px 36px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .modal__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: -22px;
+    font-weight: 400;
+  }
+  
+  .modal__title {
+    font-size: 24px;
+    color: black;
+    font-family: roboto;
+    font-weight: 900;
+    margin-top: 22px;
+  }
+  .modal__label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #2f71e5;
+  }
+  .modal__input {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 100%;
+    display: block;
+    width: 358px;
+    border: none;
+    font-size: 14px;
+    margin-bottom: 11px;
+    border-bottom: solid 1px black;
+    opacity: 20%;
+    padding-top: 9px;
+    padding-bottom: 10px;
+    color: black;
+    font-weight: 400;
+  }
+  .modal__form_error {
+    display: block;
+    width: 440px;
+    margin-bottom: 24px;
+    border: none;
+    border-bottom: 1px solid #ff0000;
+  }
+  
+  .modal__submit {
+    display: flex;
+    position: absolute;
+    width: 358px;
+    height: 64px;
+    color: #ffffff;
+    background-color: #0000004d;
+    border: solid 1px;
+    border-radius: 50px;
+    bottom: 64px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  
+  .modal__close-button_type_form {
+    position: relative;
+    border: none;
+    background-image: url("/src/assets/modalClose.png");
+    top: -115px;
+    left: 400px;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+  }
+  
