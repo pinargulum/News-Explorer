@@ -21,7 +21,5 @@ export const registerUser = async (email, password, username) => {
 export const loginUser = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password);
 };
-export const getCurrentUser = async (displayName) => {
-  const userCredential = await updateProfile(displayName);
-  return userCredential;
-};
+
+

@@ -4,11 +4,14 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Main from "../Main/Main.jsx";
 import Header from "../Header/Header";
+import SavedNews from "../SavedNews/SavedNews.jsx"
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import Footer from "../Footer/Footer";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext.jsx";
 import { registerUser, loginUser } from "../utils/firebaseAuth.js";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../utils/firebase.js";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 
 import Api from "../utils/api.js";
@@ -22,7 +25,21 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
-  // function for getting the cards
+  /// Modals
+  const signinModal = () => {
+    setActiveModal("signin");
+  };
+  const signupModal = () => {
+    setActiveModal("signup");
+  };
+  const confirmationModal = () => {
+    setActiveModal("confirmation");
+  };
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
+  /// function for getting the cards
   function handleSearch(query) {
     if (!query.trim()) {
       alert("please enter a keyword");
@@ -40,8 +57,9 @@ function App() {
         console.error("Something went wrong", err);
       });
   }
-  // register user
 
+  /// User
+  //signup user
   function handleSignupForm(email, password, username) {
     registerUser(email, password, username)
       .then((userCredential) => {
@@ -66,21 +84,18 @@ function App() {
         console.error("Signin error:", err.code, err.message);
       });
   };
-const getUsername = () => {
-  
-}
-  const signinModal = () => {
-    setActiveModal("signin");
-  };
-  const signupModal = () => {
-    setActiveModal("signup");
-  };
-  const confirmationModal = () => {
-    setActiveModal("confirmation");
-  };
-  const closeActiveModal = () => {
-    setActiveModal("");
-  };
+ // get current user
+  useEffect(() => {
+    const getUsername = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser(user);
+      } else {
+        setCurrentUser(null);
+      }
+    });
+    return getUsername;
+  }, []);
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -102,8 +117,8 @@ const getUsername = () => {
               }
             />
             <Route
-              path="/signup"
-              element={<SigninModal />}
+              path="/saved-news"
+              element={<SavedNews />}
             />
           </Routes>
           <SigninModal
