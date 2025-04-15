@@ -9,6 +9,7 @@ import SignupModal from "../SignupModal/SignupModal";
 import Footer from "../Footer/Footer";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext.jsx";
 import { registerUser, loginUser } from "../utils/firebaseAuth.js";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 
 import Api from "../utils/api.js";
 
@@ -46,8 +47,8 @@ function App() {
       .then((userCredential) => {
         console.log("user created", userCredential.user);
         console.log("userNameSet:", userCredential.user.displayName);
-
         closeActiveModal();
+        confirmationModal();
       })
       .catch((err) => {
         console.error("Signup error:", err.code, err.message);
@@ -65,12 +66,17 @@ function App() {
         console.error("Signin error:", err.code, err.message);
       });
   };
-
+const getUsername = () => {
+  
+}
   const signinModal = () => {
     setActiveModal("signin");
   };
   const signupModal = () => {
     setActiveModal("signup");
+  };
+  const confirmationModal = () => {
+    setActiveModal("confirmation");
   };
   const closeActiveModal = () => {
     setActiveModal("");
@@ -79,7 +85,10 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <div className="page__content">
-          <Header signinModal={signinModal} />
+          <Header
+            signinModal={signinModal}
+            isLoggedIn={isLoggedIn}
+          />
           <Routes>
             <Route
               path="/"
@@ -108,6 +117,11 @@ function App() {
             onClose={closeActiveModal}
             signinModal={signinModal}
             handleSignupForm={handleSignupForm}
+          />
+          <ConfirmationModal
+            isOpen={activeModal === "confirmation"}
+            onClose={closeActiveModal}
+            signinModal={signinModal}
           />
           <Footer />
         </div>
