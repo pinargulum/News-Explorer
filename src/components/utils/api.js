@@ -21,17 +21,18 @@ const getNews = async (query) => {
     `${url}?q=${query}&from=${formattedFrom}&sortBy=publishedAt&pageSize100&apiKey=${apiKey}`,
   ).then(checkResponse);
 };
-
-
-
-
-
-
 const Api = {
   getNews,
  
 };
 export default Api;
+
+
+
+
+
+
+
 
 /*
   const mockArticles = [

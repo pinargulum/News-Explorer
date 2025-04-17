@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 
 
 function SearchForm({ handleSearch }) {
-    const [query, setquery] = useState("");
+    const [query, setQuery] = useState("");
     function handleChange(e) {
-      setquery(e.target.value);
+      setQuery(e.target.value);
     }
     function handleSubmit(e) {
       e.preventDefault();

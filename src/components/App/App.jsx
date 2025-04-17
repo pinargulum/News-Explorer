@@ -4,26 +4,84 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Main from "../Main/Main.jsx";
 import Header from "../Header/Header";
-import SavedNews from "../SavedNews/SavedNews.jsx"
+import SavedNews from "../SavedNews/SavedNews.jsx";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import Footer from "../Footer/Footer";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext.jsx";
-import { registerUser, loginUser } from "../utils/firebaseAuth.js";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  registerUser,
+  loginUser,
+  fetchArticles,
+  fetchUserSavedArticles,
+  deleteArticles,
+} from "../utils/firebaseAuth.js";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase.js";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 
 import Api from "../utils/api.js";
+import { collection } from "firebase/firestore";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-  const [results, setResults] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, seterror] = useState("");
+  const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState([]);
+  const [savedArticles, setSavedArticles] = useState([{}]);
+
+  function handleSearch(query) {
+    if (!query.trim()) {
+      alert("please enter a keyword");
+    }
+    setIsLoading(true);
+    setError("");
+    setIsSearched(false);
+    Api.getNews(query)
+      .then((data) => {
+        setIsLoading(false);
+        setArticles(data.articles);
+        setIsSearched(true);
+      })
+      .catch((err) => {
+        console.error("Something went wrong", err);
+      });
+  }
+
+  
+
+  const handleSaveArticle = async (article, keyword) => {
+    if (!currentUser) {
+      alert("please signin");
+      return;
+    }
+
+    fetchArticles(article, keyword)
+      .then((data) => {
+        setSavedArticles([{ ...article, keyword, id: data.article }]);
+      })
+      //setIsLoggedIn(true)
+      .catch((err) => {
+        console.error("Something went wrong", err);
+      });
+  };
+
+  useEffect(() => {
+    const auth = getAuth();
+    const userCards = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        fetchUserSavedArticles(user.uid).then((data) => {
+          setSavedArticles(data);
+        });
+      }
+    });
+    return () => userCards;
+  }, [isLoggedIn]);
+
+  /// function for getting the cards
 
   /// Modals
   const signinModal = () => {
@@ -38,25 +96,6 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
-
-  /// function for getting the cards
-  function handleSearch(query) {
-    if (!query.trim()) {
-      alert("please enter a keyword");
-    }
-    setIsLoading(true);
-    seterror("");
-    setIsSearched(false);
-    Api.getNews(query)
-      .then((data) => {
-        setIsLoading(false);
-        setResults(data.articles);
-        setIsSearched(true);
-      })
-      .catch((err) => {
-        console.error("Something went wrong", err);
-      });
-  }
 
   /// User
   //signup user
@@ -84,11 +123,11 @@ function App() {
         console.error("Signin error:", err.code, err.message);
       });
   };
- // get current user
+  // get current user
   useEffect(() => {
     const getUsername = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setCurrentUser(user);
+        setCurrentUser(user.displayName);
       } else {
         setCurrentUser(null);
       }
@@ -109,16 +148,22 @@ function App() {
               path="/"
               element={
                 <Main
-                  results={results}
+                  articles={articles}
                   isSearched={isSearched}
                   isLoading={isLoading}
                   handleSearch={handleSearch}
+                  handleSaveArticle={handleSaveArticle}
                 />
               }
             />
             <Route
               path="/saved-news"
-              element={<SavedNews />}
+              element={
+                <SavedNews
+                  isLoggedIn={isLoggedIn}
+                  savedArticles={savedArticles}
+                />
+              }
             />
           </Routes>
           <SigninModal
