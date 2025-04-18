@@ -61,28 +61,27 @@ function App() {
       alert("please signin");
       return;
     }
-
-    fetchArticles(article, keyword)
+    await fetchArticles(article, keyword)
       .then((data) => {
-        setSavedArticles([{ ...article, keyword, id: data.article }]);
+        setSavedArticles((prev) => [
+          ...prev,
+          { ...article, keyword, id: data },
+        ]);
       })
-      //setIsLoggedIn(true)
       .catch((err) => {
         console.error("Something went wrong", err);
       });
   };
-  const handleDeleteArticle = (data, id) => {
-    const article = data.id;
-  const articleId = article.id;
-    deleteArticles(articleId)
-      .then(() => {
-        setSavedArticles((prewArticles) =>
-          prewArticles.filter((article) => article.id !== id),
+  const handleDeleteArticle = async (id) => {
+    try {
+      await deleteArticles(id)
+        setSavedArticles((prevArticles) =>
+          prevArticles.filter((article) => article.id !== id),
         );
-      })
-      .catch((err) => {
-        console.error("Something went wrong when deleting the article", err);
-      });
+      
+    } catch (err) {
+      console.error("Something went wrong when deleting the article", err);
+    }
   };
   useEffect(() => {
     const auth = getAuth();

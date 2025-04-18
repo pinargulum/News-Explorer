@@ -36,7 +36,7 @@ export const loginUser = (email, password) => {
     const articleData = {
       title: article.title || "N/A",
       description: article.description || "N/A",
-      urlToImage: article.urlToImage || "",
+      urlToImage: article.urlToImage || "N/A",
       publishedAt: article.publishedAt || "",
       source: article.source.name || "",
       keyword: keyword || "",
@@ -53,6 +53,6 @@ export const  fetchUserSavedArticles = async (userId) => {
   return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
    
 }
-export const deleteArticles = (id) => {
-  deleteDoc(doc(db, "article", id))
+export const deleteArticles = async (id) => {
+  await deleteDoc(doc(db, "article", id))
 }

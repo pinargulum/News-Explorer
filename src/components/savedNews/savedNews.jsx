@@ -5,6 +5,9 @@ import { useContext } from "react";
 
 function SavedNews({ savedArticles, handleDeleteArticle }) {
   const currentUser = useContext(CurrentUserContext);
+  const handleDelete = (article, id) => {
+    handleDeleteArticle(article, id)
+  }
   return (
     <div className="saved__news">
       <SavedNewsHeader />
@@ -20,11 +23,11 @@ function SavedNews({ savedArticles, handleDeleteArticle }) {
           {savedArticles.slice(0, 6).map((article) => (
             <li
               className="card"
-              key={article}
+              key={article.id}
             >
               <img
                 className="card__image"
-                src={article.urlToImage}
+                src={article.urlToImage || null}
                 alt={article.title}
               />
               <p className="image__text">{article.keyword}</p>
