@@ -1,64 +1,74 @@
-.page {
-    display: flex;
-    max-width: 1440px;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    padding: 0;
-    
-  }
-.saved__articles-list {
+.saved__news {
+  height: 100%;
   display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  flex-direction: column;
+}
+.saved__news-info {
+  display: flex;
+  max-width: 1440px;
+  width: 100%;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 120px;
+  padding: 0;
   padding-left: 104px;
 }
+.saved__news-title {
+  font-size: 18px;
+  opacity: 50%;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+.saved__news-text {
+  font-size: 40px;
+  font-weight: 400;
+  width: 500px;
+  height: 92px;
+  margin: 28px 0 30px 0;
+}
+.saved__news-articles {
+  background-color: #f5f6f7;
+  padding-left: 104px;
+  padding-top: 62px;
+}
+.saved__articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0;
+}
 
-  .image__text {
-    display: flex;
-    position: absolute;
-    max-width: 121px;
-    height: 40px;
-    background-color: white;
-    margin-top: 24px;
-    margin-left: 36px;
-    align-items: center;
-    border-radius: 10px;
-    padding: 0 22px 0 22px;
-   
-  }
-  
-  .saved__news-info {
-    display: flex;
-   flex-direction: column;
-   background-color: white;
-   height: 294px;
-   margin: 80px 104px 56px 104px
-  }
-  .saved__news-text {
-    font-size: 40px;
-    font-weight: 400;
-    width: 500px;
-    height: 92px;
-  }
-  .saved__news-title {
-    font-size: 18px;
-    opacity: 50%;
-    line-height: 24px;
-  }
-  .delete__button {
-    display: flex;
-    position: absolute;
-    background-repeat: no-repeat;
-    margin-top: 24px;
-    margin-left: 330px;
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    width: 40px;
-    height: 40px;
-    background-position: center;
-  
-    background-image: url("/src/assets/trash.png");
-  }
+.image__text {
+  display: flex;
+  position: absolute;
+  max-width: 121px;
+  height: 40px;
+  background-color: white;
+  margin-top: 24px;
+  margin-left: 36px;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0 22px 0 22px;
+}
+
+.saved__news-keyword {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 0;
+}
+.delete__button {
+  display: flex;
+  position: absolute;
+  background-repeat: no-repeat;
+  margin-top: 24px;
+  margin-left: 330px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  background-position: center;
+
+  background-image: url("/src/assets/trash.png");
+}

@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Main from "../Main/Main.jsx";
 import Header from "../Header/Header";
+import SavedNewsHeader from "../Header/SavedNewsHeader.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
@@ -21,18 +22,21 @@ import { auth } from "../utils/firebase.js";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 
 import Api from "../utils/api.js";
-import { collection } from "firebase/firestore";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState([6]);
   const [isSearched, setIsSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState([]);
-  const [savedArticles, setSavedArticles] = useState([{}]);
+  const [savedArticles, setSavedArticles] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(3);
 
+  function handleShowMoreButton() {
+    setVisibleCount((prev) => prev + 3);
+  }
   function handleSearch(query) {
     if (!query.trim()) {
       alert("please enter a keyword");
@@ -43,7 +47,8 @@ function App() {
     Api.getNews(query)
       .then((data) => {
         setIsLoading(false);
-        setArticles(data.articles);
+        setArticles(data.articles.slice(0, 6));
+        setVisibleCount(3);
         setIsSearched(true);
       })
       .catch((err) => {
@@ -51,9 +56,7 @@ function App() {
       });
   }
 
-  
-
-  const handleSaveArticle = async (article, keyword) => {
+  const handleSaveArticles = async (article, keyword) => {
     if (!currentUser) {
       alert("please signin");
       return;
@@ -68,7 +71,19 @@ function App() {
         console.error("Something went wrong", err);
       });
   };
-
+  const handleDeleteArticle = (data, id) => {
+    const article = data.id;
+  const articleId = article.id;
+    deleteArticles(articleId)
+      .then(() => {
+        setSavedArticles((prewArticles) =>
+          prewArticles.filter((article) => article.id !== id),
+        );
+      })
+      .catch((err) => {
+        console.error("Something went wrong when deleting the article", err);
+      });
+  };
   useEffect(() => {
     const auth = getAuth();
     const userCards = onAuthStateChanged(auth, (user) => {
@@ -152,7 +167,9 @@ function App() {
                   isSearched={isSearched}
                   isLoading={isLoading}
                   handleSearch={handleSearch}
-                  handleSaveArticle={handleSaveArticle}
+                  handleSaveArticles={handleSaveArticles}
+                  visibleCount={visibleCount}
+                  handleShowMoreButton={handleShowMoreButton}
                 />
               }
             />
@@ -162,6 +179,7 @@ function App() {
                 <SavedNews
                   isLoggedIn={isLoggedIn}
                   savedArticles={savedArticles}
+                  handleDeleteArticle={handleDeleteArticle}
                 />
               }
             />

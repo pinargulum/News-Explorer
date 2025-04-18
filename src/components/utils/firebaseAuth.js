@@ -29,22 +29,23 @@ export const loginUser = (email, password) => {
 
 
   /// cards
- export const fetchArticles = async (article, keyword) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  if(!user) throw new Error("You are not authorized");
-  const articleData = {
-    title: article.title || "N/A",
-    description: article.description || "N/A",
-    urlToImage: article.urlToImage || "",
-    publishedAt: article.publishedAt || "",
-    source: article.source.name || "",
-    keyword: keyword || "",
-    userId: user.uid,
-  }
-  const articleInfo = await addDoc(collection(db, "article"), articleData);
-  return articleInfo.id;
-  }
+  export const fetchArticles = async (article, keyword) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if(!user) throw new Error("You are not authorized");
+    const articleData = {
+      title: article.title || "N/A",
+      description: article.description || "N/A",
+      urlToImage: article.urlToImage || "",
+      publishedAt: article.publishedAt || "",
+      source: article.source.name || "",
+      keyword: keyword || "",
+      userId: user.uid,
+      
+    }
+    const articleInfo = await addDoc(collection(db, "article"), articleData);
+    return articleInfo.id;
+    }
  
 export const  fetchUserSavedArticles = async (userId) => {
   const q = query(collection(db, "article"), where("userId", "==", userId))

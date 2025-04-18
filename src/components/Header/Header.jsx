@@ -33,13 +33,9 @@ function Header({ signinModal, isLoggedIn }) {
           >
             Home
           </a>
-          <button
-            className="saved__artical-button"
-            type="submit"
-          >
-            Saved articles
-          </button>
           <Link to="/saved-news">
+          <p className="saved__artical-text">Saved articles</p>
+          </Link>
           <div className="user__logout">
             <p className="username">{currentUser}</p>
             <img
@@ -48,7 +44,7 @@ function Header({ signinModal, isLoggedIn }) {
               type="submit"
             />
           </div>
-          </Link>
+         
         </div>
       )}
     </div>

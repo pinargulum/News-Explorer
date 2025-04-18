@@ -6,11 +6,11 @@ import { useContext } from "react";
 function NewsCard({
   keyword,
   article,
-  handleSaveArticle
+  handleSaveArticles
 }) {
   const currentUser = useContext(CurrentUserContext);
   const handleSaveButton = () => {
-    handleSaveArticle(article, keyword);
+    handleSaveArticles(article, keyword);
   };
   return (
     <li className="card">
