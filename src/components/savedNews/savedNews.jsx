@@ -10,7 +10,7 @@ function SavedNews({
   isLoggedIn,
 }) {
   const currentUser = useContext(CurrentUserContext);
- 
+
   return (
     <>
       {isLoggedIn && (
@@ -19,9 +19,9 @@ function SavedNews({
           <div className="saved__news-info">
             <h2 className="saved__news-title">Saved articles</h2>
             <p className="saved__news-text">
-              {currentUser}, you have 5 saved articles
+              {currentUser}, you have {savedArticles.length} saved articles
             </p>
-            <p className="saved__news-keyword">By keywords:</p>
+            <p className="saved__news-keyword">By keywords: {savedArticles.keyword}</p>
           </div>
           <div className="saved__news-articles">
             <ul className="saved__articles-list">
@@ -43,14 +43,15 @@ function SavedNews({
                     className="delete__button"
                   ></button>
 
-                  <div className="card__info">
+                  <div className="saved__cards-info">
                     <h3 className="card__date">{article.publishedAt}</h3>
                     <h3 className="card__title">{article.title}</h3>
                     <p className="card__description">{article.description}</p>
-                  </div>
-                  <p className="card__source">
+                    <p className="card__source">
                     {article.source?.name || article.source}
                   </p>
+                  </div>
+                 
                 </li>
               ))}
             </ul>

@@ -9,12 +9,15 @@ import Preloader from "../Preloader/Preloader.jsx";
 function Main({
   isSearched,
   articles,
-  handleSearch,
+  handleArticlesSearch,
   isLoading,
   handleSaveArticles,
- savedArticles,
+  savedArticles,
   handleShowMoreButton,
   visibleCount,
+  handleDeleteArticle,
+  error,
+  
 }) {
   const [query, setQuery] = useState("");
   function handleChange(e) {
@@ -22,7 +25,7 @@ function Main({
   }
   function handleSubmit(e) {
     e.preventDefault();
-    handleSearch(query);
+  handleArticlesSearch(query);
   }
   return (
     <main className="main">
@@ -58,7 +61,7 @@ function Main({
         </div>
       </section>
       {isLoading && <Preloader />}
-      {articles.length < 0 && (
+      {articles.length <= 0 && (
         <section className="message__section">
           <img
             className="not__found-image"
@@ -71,7 +74,7 @@ function Main({
           </p>
         </section>
       )}
-      {articles === 0 && (
+      {error && (
         <div className="error__message">
           <p className="error__text">
             Sorry, something went wrong during the request. Please try again
@@ -90,6 +93,7 @@ function Main({
                 keyword={query}
                 handleSaveArticles={handleSaveArticles}
                 savedArticles={savedArticles}
+                handleDeleteArticle={handleDeleteArticle}
               />
             ))}
           </ul>

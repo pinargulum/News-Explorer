@@ -41,17 +41,22 @@ function App() {
     setVisibleCount((prev) => prev + 3);
   }
 
-  const handleSearch = async (query) => {
+  const handleArticlesSearch = async (query) => {
     if (!query.trim()) {
       alert("please enter a keyword");
     }
     setIsLoading(true);
-    //setError("");
+    setError("");
     setIsSearched(false);
     await Api.getNews(query)
       .then((data) => {
+        const filteredArticles = data.articles.filter((article) => 
+          article.title?.toLowerCase().includes(query.toLowerCase())
+        
+        );
+       
         setIsLoading(false);
-        setArticles(data.articles.slice(0, 6));
+        setArticles(filteredArticles.slice(0, 6));
         setVisibleCount(3);
         setIsSearched(true);
       })
@@ -92,8 +97,7 @@ function App() {
       if (user) {
         fetchUserSavedArticles(user.uid).then((data) => {
           setSavedArticles(data);
-          setIsLoggedIn(true)
-          
+          setIsLoggedIn(true);
         });
       }
     });
@@ -124,7 +128,7 @@ function App() {
         console.log("user created", userCredential.user);
         console.log("userNameSet:", userCredential.user.displayName);
         closeActiveModal();
-        setIsLoggedIn(true)
+        setIsLoggedIn(true);
         confirmationModal();
       })
       .catch((err) => {
@@ -137,7 +141,7 @@ function App() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("User logged in:", user);
-        setIsLoggedIn(true)
+        setIsLoggedIn(true);
         closeActiveModal();
       })
       .catch((err) => {
@@ -148,8 +152,8 @@ function App() {
   useEffect(() => {
     const getUsername = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setIsLoggedIn(true)
-        setCurrentUser(currentUser)
+        setIsLoggedIn(true);
+        setCurrentUser(currentUser);
         setCurrentUser(user.displayName);
       } else {
         setCurrentUser(null);
@@ -157,18 +161,18 @@ function App() {
     });
     return getUsername;
   }, []);
-  
+
   const navigate = useNavigate();
   function handleLogout() {
     signOut(auth)
-    .then(() => {
-      localStorage.removeItem("token");
-      setIsLoggedIn(false);
-      navigate("/");
-    })
-    .catch((err) => {
-      console.error("Logout Failed:", err);
-    });
+      .then(() => {
+        localStorage.removeItem("token");
+        setIsLoggedIn(false);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error("Logout Failed:", err);
+      });
   }
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -187,49 +191,51 @@ function App() {
                   articles={articles}
                   isSearched={isSearched}
                   isLoading={isLoading}
-                  handleSearch={handleSearch}
+                  handleArticlesSearch={handleArticlesSearch}
                   handleSaveArticles={handleSaveArticles}
                   visibleCount={visibleCount}
+                  error={error}
                   savedArticles={savedArticles}
                   handleShowMoreButton={handleShowMoreButton}
+                  handleDeleteArticle={handleDeleteArticle}
                 />
               }
             />
             <Route
               path="/saved-news"
               element={
-                //<ProtectedRoute currentUser={currentUser}>
+                <ProtectedRoute currentUser={currentUser}>
                 <SavedNews
                   isLoggedIn={isLoggedIn}
                   savedArticles={savedArticles}
                   handleDeleteArticle={handleDeleteArticle}
                   handleLogout={handleLogout}
                 />
-                //</ProtectedRoute>
+                </ProtectedRoute>
               }
             />
-             <Route
-                path="/signin"
-                element={
-                  <ProtectedRoute
-                    isLoggedIn={isLoggedIn}
-                    isPublic={true}
-                  >
-                    <signin />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/signup"
-                element={
-                  <ProtectedRoute
-                    isLoggedIn={isLoggedIn}
-                    isPublic={true}
-                  >
-                    <signup />
-                  </ProtectedRoute>
-                }
-              />
+            <Route
+              path="/signin"
+              element={
+                <ProtectedRoute
+                  currentUser={!currentUser}
+                  isPublic={true}
+                >
+                  <signin />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <ProtectedRoute
+                  currentUser={!currentUser}
+                  isPublic={true}
+                >
+                  <signup />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
           <SigninModal
             isOpen={activeModal === "signin"}

@@ -3,17 +3,32 @@ import "../NewsCard/NewsCard.css";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 import { useContext, useState } from "react";
 
-function NewsCard({ keyword, article, handleSaveArticles, isLoggedIn }) {
+function NewsCard({
+  keyword,
+  article,
+  handleSaveArticles,
+  handleDeleteArticle,
+  savedArticles,
+}) {
   const currentUser = useContext(CurrentUserContext);
-  const [isSaved, setIsSaved] = useState(false)
- 
+  const [isSaved, setIsSaved] = useState(false);
+  const [isHoverd, setIsHoved] = useState(false);
+
   const handleSaveButton = () => {
     if (currentUser) {
-    setIsSaved(true)
-    handleSaveArticles(article, keyword);
+      const saved = savedArticles.find(
+        (saved) => saved.title === article.title,
+      );
+      if (saved) {
+        handleDeleteArticle(saved.id);
+        setIsSaved(false);
+      } else {
+        setIsSaved(true);
+        handleSaveArticles(article, keyword);
+      }
     }
-   
   };
+
   return (
     <li className="card">
       <img
@@ -21,19 +36,26 @@ function NewsCard({ keyword, article, handleSaveArticles, isLoggedIn }) {
         src={article.urlToImage}
         alt={article.title}
       />
-
-      <button
-        onClick={handleSaveButton}
-        type="button"
-        className={isSaved ? "archive__button_active" : "archive__button"}
-      ></button>
-    
+      <div
+        className="button__container"
+        onMouseEnter={() => setIsHoved(true)}
+        onMouseLeave={() => setIsHoved(false)}
+      >
+        {!currentUser && isHoverd && (
+          <p className="button__alert">Please sign in to save</p>
+        )}
+        <button
+          onClick={handleSaveButton}
+          type="button"
+          className={isSaved ? "archive__button_active" : "archive__button"}
+        ></button>
+      </div>
       <div className="card__info">
         <h3 className="card__date">{article.publishedAt}</h3>
         <h3 className="card__title">{article.title}</h3>
         <p className="card__description">{article.description}</p>
+        <p className="card__source">{article.source.name}</p>
       </div>
-      <p className="card__source">{article.source.name}</p>
     </li>
   );
 }
