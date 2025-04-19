@@ -3,13 +3,18 @@ import logout from "../../assets/logout.png";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 import { createContext, useContext } from "react";
 import { Link } from "react-router-dom";
-function Header({ signinModal, isLoggedIn }) {
+function Header({ signinModal, isLoggedIn, handleLogout }) {
   const currentUser = useContext(CurrentUserContext);
-
+  const onClick = () => {
+    if (!isLoggedIn && !currentUser) {
+      handleLogout()
+      navigate("/");
+    }
+  };
   return (
     <div className="header">
       <div className="header__logo">NewsExplorer</div>
-      {isLoggedIn ? (
+      {!currentUser ? (
         <div className="header__nav">
           <a
             href="/"
@@ -33,15 +38,15 @@ function Header({ signinModal, isLoggedIn }) {
           >
             Home
           </a>
-          <Link to="/saved-news">
+          <a href="/saved-news">
           <p className="saved__artical-text">Saved articles</p>
-          </Link>
-          <div className="user__logout">
+          </a>
+          <div className="user__logout" onClick={handleLogout}>
             <p className="username">{currentUser}</p>
             <img
               src={logout}
               className="logout__image"
-              type="submit"
+             
             />
           </div>
          

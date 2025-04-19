@@ -3,7 +3,7 @@ import saveout from "../../assets/saveout.png";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 import { createContext, useContext } from "react";
 import { Link } from "react-router-dom";
-function SavedNewsHeader({ signinModal, isLoggedIn }) {
+function SavedNewsHeader({ handleLogout }) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -21,7 +21,7 @@ function SavedNewsHeader({ signinModal, isLoggedIn }) {
       
           <p className="saved__artical">Saved articles</p>
       
-        <div className="saved__user-logout">
+        <div className="saved__user-logout" onClick={handleLogout}>
           <p className="saved__username">{currentUser}</p>
           <img
             src={saveout}

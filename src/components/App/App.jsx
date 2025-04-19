@@ -1,6 +1,6 @@
 import "../App/App.css";
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Main from "../Main/Main.jsx";
 import Header from "../Header/Header";
@@ -10,6 +10,9 @@ import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import Footer from "../Footer/Footer";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext.jsx";
+import ProtectedRoute from "../ProtectedRoute.jsx";
+import { signOut } from "firebase/auth";
+
 import {
   registerUser,
   loginUser,
@@ -37,14 +40,15 @@ function App() {
   function handleShowMoreButton() {
     setVisibleCount((prev) => prev + 3);
   }
-  function handleSearch(query) {
+
+  const handleSearch = async (query) => {
     if (!query.trim()) {
       alert("please enter a keyword");
     }
     setIsLoading(true);
-    setError("");
+    //setError("");
     setIsSearched(false);
-    Api.getNews(query)
+    await Api.getNews(query)
       .then((data) => {
         setIsLoading(false);
         setArticles(data.articles.slice(0, 6));
@@ -54,7 +58,7 @@ function App() {
       .catch((err) => {
         console.error("Something went wrong", err);
       });
-  }
+  };
 
   const handleSaveArticles = async (article, keyword) => {
     if (!currentUser) {
@@ -74,11 +78,10 @@ function App() {
   };
   const handleDeleteArticle = async (id) => {
     try {
-      await deleteArticles(id)
-        setSavedArticles((prevArticles) =>
-          prevArticles.filter((article) => article.id !== id),
-        );
-      
+      await deleteArticles(id);
+      setSavedArticles((prevArticles) =>
+        prevArticles.filter((article) => article.id !== id),
+      );
     } catch (err) {
       console.error("Something went wrong when deleting the article", err);
     }
@@ -89,6 +92,8 @@ function App() {
       if (user) {
         fetchUserSavedArticles(user.uid).then((data) => {
           setSavedArticles(data);
+          setIsLoggedIn(true)
+          
         });
       }
     });
@@ -119,6 +124,7 @@ function App() {
         console.log("user created", userCredential.user);
         console.log("userNameSet:", userCredential.user.displayName);
         closeActiveModal();
+        setIsLoggedIn(true)
         confirmationModal();
       })
       .catch((err) => {
@@ -131,6 +137,7 @@ function App() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("User logged in:", user);
+        setIsLoggedIn(true)
         closeActiveModal();
       })
       .catch((err) => {
@@ -141,6 +148,8 @@ function App() {
   useEffect(() => {
     const getUsername = onAuthStateChanged(auth, (user) => {
       if (user) {
+        setIsLoggedIn(true)
+        setCurrentUser(currentUser)
         setCurrentUser(user.displayName);
       } else {
         setCurrentUser(null);
@@ -148,7 +157,19 @@ function App() {
     });
     return getUsername;
   }, []);
-
+  
+  const navigate = useNavigate();
+  function handleLogout() {
+    signOut(auth)
+    .then(() => {
+      localStorage.removeItem("token");
+      setIsLoggedIn(false);
+      navigate("/");
+    })
+    .catch((err) => {
+      console.error("Logout Failed:", err);
+    });
+  }
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -156,6 +177,7 @@ function App() {
           <Header
             signinModal={signinModal}
             isLoggedIn={isLoggedIn}
+            handleLogout={handleLogout}
           />
           <Routes>
             <Route
@@ -168,6 +190,7 @@ function App() {
                   handleSearch={handleSearch}
                   handleSaveArticles={handleSaveArticles}
                   visibleCount={visibleCount}
+                  savedArticles={savedArticles}
                   handleShowMoreButton={handleShowMoreButton}
                 />
               }
@@ -175,13 +198,38 @@ function App() {
             <Route
               path="/saved-news"
               element={
+                //<ProtectedRoute currentUser={currentUser}>
                 <SavedNews
                   isLoggedIn={isLoggedIn}
                   savedArticles={savedArticles}
                   handleDeleteArticle={handleDeleteArticle}
+                  handleLogout={handleLogout}
                 />
+                //</ProtectedRoute>
               }
             />
+             <Route
+                path="/signin"
+                element={
+                  <ProtectedRoute
+                    isLoggedIn={isLoggedIn}
+                    isPublic={true}
+                  >
+                    <signin />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <ProtectedRoute
+                    isLoggedIn={isLoggedIn}
+                    isPublic={true}
+                  >
+                    <signup />
+                  </ProtectedRoute>
+                }
+              />
           </Routes>
           <SigninModal
             isOpen={activeModal === "signin"}

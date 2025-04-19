@@ -12,7 +12,7 @@ function Main({
   handleSearch,
   isLoading,
   handleSaveArticles,
- 
+ savedArticles,
   handleShowMoreButton,
   visibleCount,
 }) {
@@ -89,6 +89,7 @@ function Main({
                 article={article}
                 keyword={query}
                 handleSaveArticles={handleSaveArticles}
+                savedArticles={savedArticles}
               />
             ))}
           </ul>

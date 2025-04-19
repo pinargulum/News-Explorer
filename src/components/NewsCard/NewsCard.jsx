@@ -1,16 +1,18 @@
 import { query } from "firebase/firestore";
 import "../NewsCard/NewsCard.css";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-function NewsCard({
-  keyword,
-  article,
-  handleSaveArticles
-}) {
+function NewsCard({ keyword, article, handleSaveArticles, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
+  const [isSaved, setIsSaved] = useState(false)
+ 
   const handleSaveButton = () => {
+    if (currentUser) {
+    setIsSaved(true)
     handleSaveArticles(article, keyword);
+    }
+   
   };
   return (
     <li className="card">
@@ -19,13 +21,13 @@ function NewsCard({
         src={article.urlToImage}
         alt={article.title}
       />
-     
+
       <button
         onClick={handleSaveButton}
         type="button"
-        className="archive__button"
+        className={isSaved ? "archive__button_active" : "archive__button"}
       ></button>
-   
+    
       <div className="card__info">
         <h3 className="card__date">{article.publishedAt}</h3>
         <h3 className="card__title">{article.title}</h3>
