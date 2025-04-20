@@ -19,11 +19,12 @@
   margin: 30px 0px 26px 104px;
   font-weight: 700;
   color: black;
+  font-family: roboto-slab, sans-serif;
 }
 .saved__header-nav {
   display: flex;
   flex-direction: row;
-  font-family: Roboto;
+  font-family: roboto, sans-serif;
   align-items: center;
   color: black;
   gap: 42px;
@@ -37,6 +38,7 @@
   font-size: 18px;
   color: black;
   text-decoration: none;
+  font-family: roboto, sans-serif;
 }
 
 .saved__user-container {

@@ -37,10 +37,24 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const [visibleCount, setVisibleCount] = useState(3);
 
+  /// Modals
+  const signinModal = () => {
+    setActiveModal("signin");
+  };
+  const signupModal = () => {
+    setActiveModal("signup");
+  };
+  const confirmationModal = () => {
+    setActiveModal("confirmation");
+  };
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
   function handleShowMoreButton() {
     setVisibleCount((prev) => prev + 3);
   }
-
+  /// Main Section
   const handleArticlesSearch = async (query) => {
     if (!query.trim()) {
       alert("please enter a keyword");
@@ -50,11 +64,9 @@ function App() {
     setIsSearched(false);
     await Api.getNews(query)
       .then((data) => {
-        const filteredArticles = data.articles.filter((article) => 
-          article.title?.toLowerCase().includes(query.toLowerCase())
-        
+        const filteredArticles = data.articles.filter((article) =>
+          article.title?.toLowerCase().includes(query.toLowerCase()),
         );
-       
         setIsLoading(false);
         setArticles(filteredArticles.slice(0, 6));
         setVisibleCount(3);
@@ -64,7 +76,21 @@ function App() {
         console.error("Something went wrong", err);
       });
   };
-
+  ////////////////logged in user cards/////////////////////
+  // get cards
+  useEffect(() => {
+    const auth = getAuth();
+    const userCards = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        fetchUserSavedArticles(user.uid).then((data) => {
+          setSavedArticles(data);
+          setIsLoggedIn(true);
+        });
+      }
+    });
+    return () => userCards;
+  }, [isLoggedIn]);
+  // save cards
   const handleSaveArticles = async (article, keyword) => {
     if (!currentUser) {
       alert("please signin");
@@ -81,6 +107,7 @@ function App() {
         console.error("Something went wrong", err);
       });
   };
+  // delete cards
   const handleDeleteArticle = async (id) => {
     try {
       await deleteArticles(id);
@@ -91,61 +118,31 @@ function App() {
       console.error("Something went wrong when deleting the article", err);
     }
   };
-  useEffect(() => {
-    const auth = getAuth();
-    const userCards = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        fetchUserSavedArticles(user.uid).then((data) => {
-          setSavedArticles(data);
-          setIsLoggedIn(true);
-        });
-      }
-    });
-    return () => userCards;
-  }, [isLoggedIn]);
 
-  /// function for getting the cards
-
-  /// Modals
-  const signinModal = () => {
-    setActiveModal("signin");
-  };
-  const signupModal = () => {
-    setActiveModal("signup");
-  };
-  const confirmationModal = () => {
-    setActiveModal("confirmation");
-  };
-  const closeActiveModal = () => {
-    setActiveModal("");
-  };
-
-  /// User
-  //signup user
-  function handleSignupForm(email, password, username) {
-    registerUser(email, password, username)
-      .then((userCredential) => {
-        console.log("user created", userCredential.user);
-        console.log("userNameSet:", userCredential.user.displayName);
-        closeActiveModal();
+  ///////////////////////////////////////////////////////////// User /////////////////////////////////////////////////////////
+  //signup
+  const handleSignupForm = async (email, password, username) => {
+    await registerUser(email, password, username)
+      .then(() => {
         setIsLoggedIn(true);
+        closeActiveModal();
         confirmationModal();
       })
       .catch((err) => {
-        console.error("Signup error:", err.code, err.message);
+        console.error("Signup error:", err);
       });
-  }
-  //login user
-  const handleSigninForm = (email, password) => {
-    loginUser(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("User logged in:", user);
+  };
+  //login
+  const handleSigninForm = async (email, password) => {
+    await loginUser(email, password)
+      .then((data) => {
+        const user = data.user.displayName;
+        setCurrentUser(user);
         setIsLoggedIn(true);
         closeActiveModal();
       })
       .catch((err) => {
-        console.error("Signin error:", err.code, err.message);
+        console.error("Signin error:", err);
       });
   };
   // get current user
@@ -161,7 +158,7 @@ function App() {
     });
     return getUsername;
   }, []);
-
+  // logout user
   const navigate = useNavigate();
   function handleLogout() {
     signOut(auth)
@@ -205,12 +202,12 @@ function App() {
               path="/saved-news"
               element={
                 <ProtectedRoute currentUser={currentUser}>
-                <SavedNews
-                  isLoggedIn={isLoggedIn}
-                  savedArticles={savedArticles}
-                  handleDeleteArticle={handleDeleteArticle}
-                  handleLogout={handleLogout}
-                />
+                  <SavedNews
+                    isLoggedIn={isLoggedIn}
+                    savedArticles={savedArticles}
+                    handleDeleteArticle={handleDeleteArticle}
+                    handleLogout={handleLogout}
+                  />
                 </ProtectedRoute>
               }
             />

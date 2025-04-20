@@ -10,12 +10,12 @@ function SavedNewsHeader({ handleLogout }) {
     <div className="saved__news-header">
       <div className="saved__header-logo">NewsExplorer</div>
       <div className="saved__header-nav">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="saved__home-link"
         >
           Home
-        </a>
+        </Link>
       
       <div className="saved__user-container">
       

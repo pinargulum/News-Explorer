@@ -1,6 +1,7 @@
 import "../Footer/Footer.css";
 import fb from "/src/assets/fb.png";
 import Github from "/src/assets/Github.png";
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div className="footer">
@@ -14,7 +15,7 @@ function Footer() {
           Home
         </a>
         <a
-          href="/"
+          href="https://tripleten.com"
           className="footer__link"
         >
           TripleTen
@@ -24,11 +25,13 @@ function Footer() {
           alt="facebook"
           className="footer__link"
         />
+        <Link to="https://github.com/pinargulum/News-Explorer.git">
         <img
           src={Github}
           alt="Github"
           className="footer__link"
         />
+        </Link>
       </div>
     </div>
   );

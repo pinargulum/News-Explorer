@@ -7,7 +7,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
   const currentUser = useContext(CurrentUserContext);
   const onClick = () => {
     if (!isLoggedIn && !currentUser) {
-      handleLogout()
+      handleLogout();
       navigate("/");
     }
   };
@@ -32,24 +32,25 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
         </div>
       ) : (
         <div className="user__container">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="header__home-link"
           >
             Home
-          </a>
-          <a href="/saved-news">
-          <p className="saved__artical-text">Saved articles</p>
-          </a>
-          <div className="user__logout" onClick={handleLogout}>
+          </Link>
+          <Link to="/saved-news">
+            <p className="saved__artical-text">Saved articles</p>
+          </Link>
+          <div
+            className="user__logout"
+            onClick={handleLogout}
+          >
             <p className="username">{currentUser}</p>
             <img
               src={logout}
               className="logout__image"
-             
             />
           </div>
-         
         </div>
       )}
     </div>

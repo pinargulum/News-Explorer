@@ -16,21 +16,22 @@
   display: flex;
   width: 250px;
   color: white;
-  
 }
 .header__logo {
   font-size: 24px;
   margin: 30px 0px 26px 104px;
   font-weight: 700;
+  font-family: roboto-slab, sans-serif;
 }
 .header__nav {
   display: flex;
   flex-direction: row;
-  font-family: Roboto;
   align-items: center;
   color: white;
   gap: 42px;
   margin-right: 104px;
+  font-family: roboto, sans-serif;
+  font-weight: 500;
 }
 
 .header__sign-button {
@@ -48,18 +49,18 @@
   outline: none;
   width: 49px;
   padding: 26px 12px 28px 12px;
-  font-weight: 500;
   font-size: 18px;
   border-bottom: solid 2px white;
   color: white;
   text-decoration: none;
+  font-family: roboto, sans-serif;
+  font-weight: 500;
 }
 .user__container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   margin-right: 104px;
 }
 .saved__artical-text {
@@ -70,7 +71,7 @@
   color: white;
   font-size: 18px;
   font-weight: 500;
- 
+  font-family: roboto, sans-serif;
   padding: 0;
 }
 .user__logout {
@@ -91,13 +92,11 @@
   gap: 6px;
 }
 .username {
-  
- 
-  font-size: 18px;
+  font-family: roboto, sans-serif;
   font-weight: 500;
+  font-size: 18px;
 }
 .logout__image {
   width: 17.41px;
   height: 16px;
- 
 }

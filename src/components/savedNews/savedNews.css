@@ -15,44 +15,30 @@
   padding-left: 104px;
   padding-top: 120px;
 }
-.saved__cards-info {
-  display: flex;
-  position: relative;
- 
-
-  flex-direction: column;
-  height: 304px;
-  width: 352px;
-  padding-left: 24px;
- 
-}
 .saved__news-title {
   font-size: 18px;
   opacity: 50%;
   line-height: 24px;
   margin: 0;
   padding: 0;
+  font-family: roboto, sans-serif;
+  font-weight: 400;
 }
 .saved__news-text {
   font-size: 40px;
-  font-weight: 400;
   width: 500px;
   height: 92px;
   margin: 28px 0 30px 0;
+  font-family: roboto-slab, sans-serif;
+  font-weight: 400;
 }
-.saved__news-articles {
-  background-color: #f5f6f7;
-  padding-left: 104px;
-  padding-top: 62px;
+.saved__news-keyword {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 56px;
+  font-family: roboto, sans-serif;
 }
-.saved__articles-list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  padding: 0;
-}
-
-.image__text {
+.image__keyword {
   display: flex;
   position: absolute;
   max-width: 121px;
@@ -63,12 +49,13 @@
   align-items: center;
   border-radius: 10px;
   padding: 0 22px 0 22px;
+  font-family: roboto, sans-serif;
+  font-weight: 500;
 }
-
-.saved__news-keyword {
-  font-size: 18px;
-  font-weight: 400;
-  margin-top: 0;
+.saved__articles {
+  background-color: #f5f6f7;
+  padding-left: 104px;
+  padding-top: 62px;
 }
 .delete__button {
   display: flex;
@@ -83,4 +70,49 @@
   height: 40px;
   background-position: center;
   background-image: url("/src/assets/trash.png");
+}
+
+.saved__card-info {
+  position: absolute;
+  display: flex;
+  margin-top: 280px;
+  flex-direction: column;
+  height: 304px;
+  width: 352px;
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+.saved__card-title {
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 0px;
+  font-family: roboto-slab, sans-serif;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.saved__card-description {
+  font-size: 16px;
+  max-height: 110px;
+  width: 100%;
+  flex-grow: 1;
+  margin-top: -12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow-wrap: normal;
+  font-family: roboto, sans-serif;
+  font-weight: 400;
+}
+.saved__card-source {
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 20px;
+  color: #b6bcbf;
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-family: roboto-slab, sans-serif;
 }

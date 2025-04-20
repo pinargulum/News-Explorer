@@ -1,70 +1,69 @@
 .main {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #F5F6F7;
-  }
-  .search__section {
-    background-position: center;
-    background-image: url("src/assets/backgroundimage.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 1440px;
-    height: 576px;
-  }
-  
-  .results__section {
-    max-width: 1440px;
-    margin-top: 80px;
-    margin-left: 104px;
-  }
-  .articles__list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 0;
-  }
-  .search__results-title {
-    font-size: 2rem;
-    color: #333;
-  }
-  .show__more-button {
-    margin-top: 64px;
-    padding: 20px 98px 20px;
-    font-weight: 500;
-    font-size: 18px;
-    outline: none;
-    margin-left: 522px;
-    border-radius: 80px;
-    border: none;
-  }
-  .message__section {
-    display: flex;
-    margin-top: 86px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .message__title {
-    font-size: 26px;
-    font-weight: 400px;
-    margin-top: 31.5px;
-    color: #BCBFB6;
-    margin-bottom: 0;
-  }
-  .message__text {
-    font-size: 18px;
-   line-height: 24px;
-    width: 200px;
-    height: 48px;
-    color: #BCBFB6;
-    text-align: center;
-  }
-  .error__message {
-    display: flex;
-    font-size: 18px;
-    justify-content: center;
-    color: #BCBFB6;
-    margin-top: 70px;
-    margin-bottom: 70px;
-  }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f6f7;
+}
+.search__section {
+  background-position: center;
+  background-image: url("src/assets/backgroundimage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1440px;
+  height: 576px;
+  font-family: roboto-slab, sans-serif;
+  font-weight: 400;
+}
+
+.results__section {
+  max-width: 1440px;
+  margin-top: 80px;
+  margin-left: 104px;
+}
+.articles__list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0;
+}
+
+.show__more-button {
+  margin-top: 64px;
+  padding: 20px 98px 20px;
+  font-weight: 500;
+  font-size: 18px;
+  outline: none;
+  margin-left: 522px;
+  border-radius: 80px;
+  border: none;
+}
+.message__section {
+  display: flex;
+  margin-top: 86px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.message__title {
+  font-size: 26px;
+  font-weight: 400px;
+  margin-top: 31.5px;
+  color: #bcbfb6;
+  margin-bottom: 0;
+}
+.message__text {
+  font-size: 18px;
+  line-height: 24px;
+  width: 200px;
+  height: 48px;
+  color: #bcbfb6;
+  text-align: center;
+}
+.error__message {
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  color: #bcbfb6;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}

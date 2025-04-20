@@ -1,7 +1,7 @@
 import "./SavedNews.css";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 import SavedNewsHeader from "../Header/SavedNewsHeader";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function SavedNews({
   savedArticles,
@@ -10,7 +10,9 @@ function SavedNews({
   isLoggedIn,
 }) {
   const currentUser = useContext(CurrentUserContext);
-
+ const keywords = [...new Set(savedArticles.map((article) => article.keyword))]
+ const displayKeywords = keywords.slice(0, 2).join(", ");
+ const otherCount = keywords.length - 2;
   return (
     <>
       {isLoggedIn && (
@@ -21,10 +23,10 @@ function SavedNews({
             <p className="saved__news-text">
               {currentUser}, you have {savedArticles.length} saved articles
             </p>
-            <p className="saved__news-keyword">By keywords: {savedArticles.keyword}</p>
+            <p className="saved__news-keyword">By keywords: {displayKeywords} {otherCount > 0 ?  `, and ${otherCount} other` : ""}</p>
           </div>
-          <div className="saved__news-articles">
-            <ul className="saved__articles-list">
+          <div className="saved__articles">
+            <ul className="articles__list">
               {savedArticles.slice(0, 6).map((article) => (
                 <li
                   className="card"
@@ -35,7 +37,7 @@ function SavedNews({
                     src={article.urlToImage || null}
                     alt={article.title}
                   />
-                  <p className="image__text">{article.keyword}</p>
+                  <p className="image__keyword">{article.keyword}</p>
 
                   <button
                     onClick={() => handleDeleteArticle(article.id)}
@@ -43,15 +45,15 @@ function SavedNews({
                     className="delete__button"
                   ></button>
 
-                  <div className="saved__cards-info">
+                  <div className="saved__card-info">
                     <h3 className="card__date">{article.publishedAt}</h3>
-                    <h3 className="card__title">{article.title}</h3>
-                    <p className="card__description">{article.description}</p>
-                    <p className="card__source">
+                    <h3 className="saved__card-title">{article.title}</h3>
+                    <p className="saved__card-description">{article.description}</p>
+                    <p className="saved__card-source">
                     {article.source?.name || article.source}
                   </p>
                   </div>
-                 
+                  
                 </li>
               ))}
             </ul>
