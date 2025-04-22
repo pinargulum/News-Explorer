@@ -10,20 +10,24 @@ function SavedNews({
   isLoggedIn,
 }) {
   const currentUser = useContext(CurrentUserContext);
- const keywords = [...new Set(savedArticles.map((article) => article.keyword))]
- const displayKeywords = keywords.slice(0, 2).join(", ");
- const otherCount = keywords.length - 2;
+  const keywords = [
+    ...new Set(savedArticles.map((article) => article.keyword)),
+  ];
+  const displayKeywords = keywords.slice(0, 2).join(", ");
+  const otherCount = keywords.length - 2;
   return (
     <>
       {isLoggedIn && (
         <div className="saved__news">
-          <SavedNewsHeader handleLogout={handleLogout} />
           <div className="saved__news-info">
             <h2 className="saved__news-title">Saved articles</h2>
             <p className="saved__news-text">
               {currentUser}, you have {savedArticles.length} saved articles
             </p>
-            <p className="saved__news-keyword">By keywords: {displayKeywords} {otherCount > 0 ?  `, and ${otherCount} other` : ""}</p>
+            <p className="saved__news-keyword">
+              By keywords: {displayKeywords}{" "}
+              {otherCount > 0 ? `, and ${otherCount} other` : ""}
+            </p>
           </div>
           <div className="saved__articles">
             <ul className="articles__list">
@@ -48,12 +52,13 @@ function SavedNews({
                   <div className="saved__card-info">
                     <h3 className="card__date">{article.publishedAt}</h3>
                     <h3 className="saved__card-title">{article.title}</h3>
-                    <p className="saved__card-description">{article.description}</p>
+                    <p className="saved__card-description">
+                      {article.description}
+                    </p>
                     <p className="saved__card-source">
-                    {article.source?.name || article.source}
-                  </p>
+                      {article.source?.name || article.source}
+                    </p>
                   </div>
-                  
                 </li>
               ))}
             </ul>

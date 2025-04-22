@@ -1,6 +1,6 @@
 import "./Main.css";
 import { useState } from "react";
-import SearchForm from "../SearchForm/SearchForm.jsx";
+
 import NewsCard from "../NewsCard/NewsCard.jsx";
 import About from "../About/About";
 import notFound from "../../assets/notFound.png";

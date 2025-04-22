@@ -1,6 +1,6 @@
 import "../App/App.css";
 import React from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Main from "../Main/Main.jsx";
 import Header from "../Header/Header";
@@ -12,7 +12,6 @@ import Footer from "../Footer/Footer";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
 import { signOut } from "firebase/auth";
-
 import {
   registerUser,
   loginUser,
@@ -23,7 +22,6 @@ import {
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase.js";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
-
 import Api from "../utils/api.js";
 
 function App() {
@@ -171,15 +169,21 @@ function App() {
         console.error("Logout Failed:", err);
       });
   }
+  const location = useLocation();
+  const renderHeader = () => {
+    if(location.pathname === "/saved-news") {
+      return <SavedNewsHeader 
+      handleLogout={handleLogout} />;
+    }
+    return <Header signinModal={signinModal}
+    isLoggedIn={isLoggedIn}
+    handleLogout={handleLogout} />;
+  }
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <div className="page__content">
-          <Header
-            signinModal={signinModal}
-            isLoggedIn={isLoggedIn}
-            handleLogout={handleLogout}
-          />
+         {renderHeader()}
           <Routes>
             <Route
               path="/"
