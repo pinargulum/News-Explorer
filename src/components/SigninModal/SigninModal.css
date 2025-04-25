@@ -73,3 +73,22 @@
   font-size: 14px;
   font-weight: 400;
 }
+@media screen and (max-width: 320px) {
+  .modal_content_signin_form {
+    width: 300px;
+    height: 380px;
+    margin-left: 10px;
+  }
+ 
+  .modal__input {
+    width: 240px;
+  }
+  .modal__submit {
+    width: 280px;
+    margin-left: -16px;
+  }
+  .second__button {
+    width: 280px;
+    margin-left: -16px;
+  }
+}

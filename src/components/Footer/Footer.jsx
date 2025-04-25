@@ -10,28 +10,29 @@ function Footer() {
       
         <a
           href="/"
-          className="footer__link"
+          className="home"
         >
           Home
         </a>
         <a
           href="https://tripleten.com"
-          className="footer__link"
+          className="tripleten"
         >
           TripleTen
         </a>
-        <img
-          src={fb}
-          alt="facebook"
-          className="footer__link"
-        />
+       
         <Link to="https://github.com/pinargulum/News-Explorer.git">
         <img
           src={Github}
           alt="Github"
-          className="footer__link"
+          className="github"
         />
         </Link>
+        <img
+          src={fb}
+          alt="facebook"
+          className="facebook"
+        />
       </div>
     </div>
   );

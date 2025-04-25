@@ -29,9 +29,8 @@ function Main({
   }
   return (
     <main className="main">
+      <div className="page__overlay">
       <section className="search__section">
-        <div className="search__info">
-          <div className="page__overlay" />
           <h2 className="search__title">What's going on in the world?</h2>
           <p className="search__text">
             Find the latest news on any topic and save them in your personal
@@ -58,8 +57,9 @@ function Main({
               Search
             </button>
           </form>
-        </div>
+        
       </section>
+      </div>
       {isLoading && <Preloader />}
       {articles.length <= 0 && (
         <section className="message__section">

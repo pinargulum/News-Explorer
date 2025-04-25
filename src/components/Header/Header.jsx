@@ -1,16 +1,21 @@
 import "../Header/Header.css";
 import logout from "../../assets/logout.png";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
-import { createContext, useContext } from "react";
+import icon from "../../assets/icon.png";
+import { createContext, useContext, useState } from "react";
 import { Link } from "react-router-dom";
+
 function Header({ signinModal, isLoggedIn, handleLogout }) {
   const currentUser = useContext(CurrentUserContext);
-  const onClick = () => {
-    if (!isLoggedIn && !currentUser) {
-      handleLogout();
-      navigate("/");
-    }
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const openMobileMenu = () => {
+    setIsMenuOpen(true);
   };
+  const closeMobileMenu = (e) => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="header">
       <div className="header__logo">NewsExplorer</div>
@@ -50,6 +55,36 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
               src={logout}
               className="logout__image"
             />
+          </div>
+        </div>
+      )}
+      <button
+        onClick={openMobileMenu}
+        className="menu__button"
+        type="button"
+      ></button>
+      {isMenuOpen && (
+        <div className="mobile__menu">
+          <div className="menu__nav">
+            <button
+              onClick={closeMobileMenu}
+              className="menu__close-button"
+              type="button"
+            ></button>
+
+            <a
+              href="/"
+              className="menu__home-link"
+            >
+              Home
+            </a>
+            <button
+              onClick={signinModal}
+              className="menu__sign-button"
+              type="submit"
+            >
+              Sign in
+            </button>
           </div>
         </div>
       )}

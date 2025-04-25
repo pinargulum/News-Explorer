@@ -8,7 +8,7 @@
   border-radius: 16px;
   overflow: hidden;
   width: 100%;
-  margin: 0 16px 16px 0;
+  margin: 0;
   max-width: 400px;
   height: 576px;
   padding: 0;
@@ -40,7 +40,6 @@
   width: 40px;
   height: 40px;
   display: flex;
-
   background-image: url("/src/assets/archiveButton.png");
 }
 .archive__button:hover {
@@ -153,6 +152,41 @@
   .card__description {
     margin-top: 12px;
     max-height: 92px;
+    overflow: hidden;
+    flex-grow: 1;
+    padding-right: 16px;
+  }
+  .button__container {
+    margin-top: -172px;
+  }
+  .archive__button {
+    left: 176px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .card {
+    width: 288px;
+    height: 444px;
+  }
+  .card__image {
+    width: 288px;
+    height: 196px;
+  }
+  .card__info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: -80px 16px 16px 16px;
+  }
+  .card__title {
+    height: 24px;
+    font-size: 22px;
+    margin-bottom: 0;
+  }
+  .card__description {
+    margin-top: 12px;
+    max-height: 88px;
+    margin-bottom: 0;
     overflow: hidden;
     flex-grow: 1;
     padding-right: 16px;

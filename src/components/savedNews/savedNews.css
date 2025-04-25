@@ -51,8 +51,7 @@
 .saved__articles {
   margin: 0;
   background-color: #f5f6f7;
-  padding: 62px 0 62px 104px ;
-  
+  padding: 62px 0 62px 104px;
 }
 .saved__card-info {
   position: absolute;
@@ -99,7 +98,7 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
- 
+
   overflow-wrap: normal;
   font-family: roboto, sans-serif;
   font-weight: 400;
@@ -123,6 +122,12 @@
     font-size: 30px;
     margin-bottom: 0;
   }
+  .saved__news-keyword {
+    width: 260px;
+    height: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
   .saved__articles {
     max-width: 1440px;
     width: 100%;
@@ -134,25 +139,67 @@
     font-size: 14px;
   }
   .saved__card-info {
-   margin-top: -130px;
+    margin-top: -130px;
     width: 224px;
-   padding: 0;
-  
+    padding: 0;
   }
   .saved__card-title {
-    
     height: 88px;
     line-break: 3;
     font-size: 22px;
     padding-right: 16px;
     margin-top: -8px;
-   
   }
   .saved__card-description {
     font-size: 16px;
-   margin-bottom: -8px;
-   line-break: 3;
-   height: 88px;
+    margin-bottom: -8px;
+    line-break: 3;
+    height: 88px;
+    padding-right: 18px;
+    width: 188px;
+    margin-top: -16px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .saved__news-info {
+    padding-left: 40px;
+    padding-top: 120px;
+  }
+  .saved__news-text {
+    width: 288px;
+    height: 68px;
+    margin-bottom: 50px;
+    margin-top: 16px;
+  }
+  .saved__articles {
+    max-width: 1440px;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 0px;
+    margin: 0;
+  }
+  .saved__news-title {
+    margin-top: -10px;
+    font-size: 14px;
+   
+  }
+  .saved__card-info {
+    margin-top: -130px;
+    width: 224px;
+    padding: 0;
+  }
+  .saved__card-title {
+    height: 88px;
+    line-break: 3;
+    font-size: 22px;
+    padding-right: 16px;
+    margin-top: -8px;
+  }
+  .saved__card-description {
+    font-size: 16px;
+    margin-bottom: -8px;
+    line-break: 3;
+    height: 88px;
     padding-right: 18px;
     width: 188px;
     margin-top: -16px;
