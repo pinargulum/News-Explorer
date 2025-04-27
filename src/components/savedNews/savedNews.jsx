@@ -50,7 +50,7 @@ function SavedNews({
                   ></button>
 
                   <div className="saved__card-info">
-                    <h3 className="card__date">{article.publishedAt}</h3>
+                    <h3 className="saved__card-date">{article.publishedAt}</h3>
                     <h3 className="saved__card-title">{article.title}</h3>
                     <p className="saved__card-description">
                       {article.description}

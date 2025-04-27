@@ -34,6 +34,36 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
           >
             Sign in
           </button>
+          <button
+            onClick={openMobileMenu}
+            className="menu__button"
+            type="button"
+          ></button>
+          {isMenuOpen && (
+            <div className="mobile__menu">
+              <div className="menu__nav">
+                <button
+                  onClick={closeMobileMenu}
+                  className="menu__close-button"
+                  type="button"
+                ></button>
+
+                <a
+                  href="/"
+                  className="menu__home-link"
+                >
+                  Home
+                </a>
+                <button
+                  onClick={signinModal}
+                  className="menu__sign-button"
+                  type="submit"
+                >
+                  Sign in
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <div className="user__container">
@@ -56,36 +86,43 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
               className="logout__image"
             />
           </div>
-        </div>
-      )}
-      <button
-        onClick={openMobileMenu}
-        className="menu__button"
-        type="button"
-      ></button>
-      {isMenuOpen && (
-        <div className="mobile__menu">
-          <div className="menu__nav">
-            <button
-              onClick={closeMobileMenu}
-              className="menu__close-button"
-              type="button"
-            ></button>
+          <button
+            onClick={openMobileMenu}
+            className="menu__button"
+            type="button"
+          ></button>
 
-            <a
-              href="/"
-              className="menu__home-link"
-            >
-              Home
-            </a>
-            <button
-              onClick={signinModal}
-              className="menu__sign-button"
-              type="submit"
-            >
-              Sign in
-            </button>
-          </div>
+          {isMenuOpen && (
+            <div className="mobile__menu">
+              <div className="menu__nav">
+                <button
+                  onClick={closeMobileMenu}
+                  className="menu__close-button"
+                  type="button"
+                ></button>
+
+                <a
+                  href="/"
+                  className="menu__home-link"
+                >
+                  Home
+                </a>
+                <Link to="/saved-news">
+                  <p className="saved__text">Saved articles</p>
+                </Link>
+                <div
+                  className="logout"
+                  onClick={handleLogout}
+                >
+                  <p className="username">{currentUser}</p>
+                  <img
+                    src={logout}
+                    className="logout__image"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

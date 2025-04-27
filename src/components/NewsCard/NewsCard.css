@@ -178,6 +178,7 @@
     position: absolute;
     margin: -80px 16px 16px 16px;
   }
+
   .card__title {
     height: 24px;
     font-size: 22px;
@@ -192,9 +193,21 @@
     padding-right: 16px;
   }
   .button__container {
-    margin-top: -172px;
+    margin-top: -200px;
   }
   .archive__button {
-    left: 176px;
+    left: 224px;
+  }
+  .button__alert {
+    padding: 8px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    left: 60px;
+  }
+  .archive__button_active {
+   
+    margin-left: 224px;
+   
   }
 }

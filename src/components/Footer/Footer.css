@@ -10,8 +10,11 @@
 }
 
 .footer__year {
-  padding-left: 104px;
-  width: 453px;
+  display: flex;
+  position: absolute;
+  margin-left: 104px;
+  width: 433px;
+  height: 22px;
   font-size: 16px;
   color: #b6bcbf;
   font-weight: 400;
@@ -19,6 +22,7 @@
 }
 .footer__nav {
   display: flex;
+  width: 133px;
   flex-direction: row;
   align-items: center;
   gap: 40px;
@@ -27,15 +31,26 @@
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
-  margin-left: 524px;
+  padding-left: 1061px;
+  padding-right: 40px;
 }
 .home {
   color: #1a1b22;
   text-decoration: none;
 }
-.tripleten {
+.TripleTen {
   color: #1a1b22;
   text-decoration: none;
+}
+.link {
+  color: #1a1b22;
+  text-decoration: none;
+}
+.social__links {
+  display: flex;
+  padding-left: 40px;
+
+  gap: 40px;
 }
 .footer__link {
   color: #1a1b22;
@@ -45,28 +60,52 @@
   margin: 0;
   padding: 0;
 }
-@media screen and (max-width: 1024px) {
-  
+@media screen and (max-width: 768px) {
   .footer__year {
     padding-left: 40px;
+    margin: 0;
   }
   .footer__nav {
-    margin-left: 113px;
+    padding-left: 513px;
+  }
+  .social__links {
+    margin-left: 40px;
   }
 }
-@media screen and (max-width: 425px) {
-.footer {
-  flex-direction: column;
-  margin-top: 100px;
-  height: 180px;;
-}
-.footer__year {
-  font-size: 12px;
- margin-top: 150px;
-}
-.footer__nav {
-  flex-direction: column;
-  margin-left: 16px;
-  margin-top: 0px;
-}
+@media screen and (max-width: 320px) {
+  .footer {
+    height: 176px;
+    margin-top: 100px;
+  }
+  .footer__year {
+    display: flex;
+    position: absolute;
+    font-size: 16px;
+    width: 288px;
+    margin-top: 132px;
+    padding-left: 16px;
+    padding-top: 40px;
+    line-height: 22px;
+  }
+  .footer__nav {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .home {
+    color: black;
+    width: 74px;
+    text-decoration: none;
+  }
+  .TripleTen {
+    color: black;
+    text-decoration: none;
+  }
+  .social__links {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    gap: 24px;
+    padding-left: 232px;
+    margin-top: -60px;
+  }
 }

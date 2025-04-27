@@ -12,29 +12,32 @@ function Footer() {
           href="/"
           className="home"
         >
-          Home
+        Home
         </a>
         <a
           href="https://tripleten.com"
-          className="tripleten"
+          className="TripleTen"
         >
           TripleTen
         </a>
-       
+       </div>
+       <div className="social__links">
         <Link to="https://github.com/pinargulum/News-Explorer.git">
+       
         <img
           src={Github}
           alt="Github"
-          className="github"
+          className="social"
         />
         </Link>
         <img
           src={fb}
           alt="facebook"
-          className="facebook"
+          className="social"
         />
       </div>
-    </div>
+      </div>
+    
   );
 }
 export default Footer;

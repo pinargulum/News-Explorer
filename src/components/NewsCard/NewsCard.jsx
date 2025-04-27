@@ -21,7 +21,7 @@ function NewsCard({
       );
       if (saved) {
         handleDeleteArticle(saved.id);
-        setIsSaved(false);
+        setIsSaved(true);
       } else {
         setIsSaved(true);
         handleSaveArticles(article, keyword);

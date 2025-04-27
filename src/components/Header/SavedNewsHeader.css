@@ -13,7 +13,6 @@
   border-color: rgba(196, 196, 196, 0.2);
   background-color: white;
 }
-
 .saved__header-logo {
   font-size: 20px;
   padding: 32px 0px 26px 104px;
@@ -40,7 +39,6 @@
   text-decoration: none;
   font-family: roboto, sans-serif;
 }
-
 .saved__user-container {
   display: flex;
   flex-direction: row;
@@ -85,6 +83,9 @@
   width: 17.41px;
   height: 16px;
 }
+.saved__menu-button {
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
   .saved__header-logo {
@@ -100,30 +101,19 @@
   }
 }
 @media screen and (max-width: 320px) {
-  .saved__artical-text {
+  .saved__artical {
     display: none;
   }
-  .user__logout {
+  .saved__home-link {
     display: none;
   }
-  .saved__news-header {
-    height: 56px;
+  .saved__user-logout {
+    display: none;
   }
-  .header__logo {
-    padding: 36px 0px 26px 16px;
-    font-size: 14px;
-  }
-
-  .header__sign-button {
-    visibility: hidden;
-  }
-  .header__logo {
+  .saved__header-logo {
     font-size: 16px;
     width: 117px;
     padding: 16px 0 16px 16px;
-  }
-  .header__home-link {
-    visibility: hidden;
   }
   .saved__menu-button {
     display: block;
@@ -134,9 +124,9 @@
     height: 24px;
     border: none;
     background-color: transparent;
-    background-image: url("/src/assets/icon.png");
+    background-image: url("/src/assets/savedHeaderMenu.png");
   }
-  .saved__mobile-menu {
+  .mobile__menu {
     position: fixed;
     top: 0;
     left: 0;
@@ -149,15 +139,6 @@
     z-index: 999;
     margin: auto;
   }
-  .saved__menu-nav {
-    position: fixed;
-    width: 300px;
-    height: 280px;
-    visibility: visible;
-    top: 7px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
   .menu__close-button {
     position: relative;
     z-index: 1000;
@@ -168,21 +149,37 @@
     background-color: transparent;
     background-image: url("/src/assets/menuClose.png");
   }
-  .mobile__user-logout {
+  .saved__text {
     position: relative;
-    align-items: center;
+    width: 160px;
+    line-height: 50px;
+    margin: 20px 16px;
     z-index: 1000;
-    justify-content: center;
-    width: 270px;
-    margin: 10px 16px;
-    padding: 16px 30px 16px 30px;
+    color: white;
+    font-family: roboto, sans-serif;
     font-weight: 500;
     font-size: 18px;
+    text-decoration: none;
+  }
+  .logout {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    margin: 10 px;
+    padding-left: 19px;
+    padding-right: 16px;
+    flex-direction: row;
     outline: none;
     border: solid 1px;
-    border-radius: 50px;
+    border-radius: 25px;
     color: white;
     background-color: transparent;
+    border-color: white;
+    background-repeat: no-repeat;
+    background-position: right;
+    gap: 6px;
   }
   .menu__home-link {
     position: relative;
@@ -196,16 +193,7 @@
     font-size: 18px;
     text-decoration: none;
   }
-  .mobile__saved-artical {
-    position: relative;
-    width: 40px;
-    line-height: 50px;
-    margin: 20px 16px;
-    z-index: 1000;
-    color: white;
-    font-family: roboto, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    text-decoration: none;
+  .saved__articles {
+    padding-left: 16px;
   }
 }

@@ -1,16 +1,17 @@
 import "../Header/SavedNewsHeader.css";
 import saveout from "../../assets/saveout.png";
+import logout from "../../assets/logout.png";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 function SavedNewsHeader({ handleLogout }) {
   const currentUser = useContext(CurrentUserContext);
-  const [isSavedMenuOpen, setIsSavedMenuOpen] = useState(false);
+  const [isSavedMenuOpen, setSavedIsMenuOpen] = useState(false);
   const openSavedMobileMenu = () => {
-    setIsSavedMenuOpen(true);
+    setSavedIsMenuOpen(true);
   };
   const closeSavedMobileMenu = (e) => {
-    setIsSavedMenuOpen(false);
+    setSavedIsMenuOpen(false);
   };
   return (
     <div className="saved__news-header">
@@ -39,45 +40,42 @@ function SavedNewsHeader({ handleLogout }) {
           </div>
         </div>
       </div>
-     
-        
-          <button
-            onClick={openSavedMobileMenu}
-            className="saved__mobile-menu-button"
-            type="button"
-          ></button>
+      <button
+        onClick={openSavedMobileMenu}
+        className="saved__menu-button"
+        type="button"
+      ></button>
+      {isSavedMenuOpen && (
+        <div className="mobile__menu">
+          <div className="menu__nav">
+            <button
+              onClick={closeSavedMobileMenu}
+              className="menu__close-button"
+              type="button"
+            ></button>
 
-          <div className="saved__mobile-menu">
-            <div className="saved__menu-nav">
-              <button
-                onClick={closeSavedMobileMenu}
-                className="saved__close-button"
-                type="button"
-              ></button>
-
-              <a
-                href="/"
-                className="mobile__saved-home"
-              >
-                Home
-              </a>
-
-              <p className="mobile__saved-artical">Saved articles</p>
-
-              <div
-                className="saved__user-logout"
-                onClick={handleLogout}
-              >
-                <p className="mobile__username">{currentUser}</p>
-                <img
-                  src={saveout}
-                  className="mobile__logout"
-                  type="submit"
-                />
-              </div>
+            <a
+              href="/"
+              className="menu__home-link"
+            >
+              Home
+            </a>
+            <Link to="/saved-news">
+              <p className="saved__text">Saved articles</p>
+            </Link>
+            <div
+              className="logout"
+              onClick={handleLogout}
+            >
+              <p className="username">{currentUser}</p>
+              <img
+                src={logout}
+                className="logout__image"
+              />
             </div>
           </div>
-     
+        </div>
+      )}
     </div>
   );
 }

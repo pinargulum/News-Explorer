@@ -47,6 +47,7 @@
   padding: 0 22px 0 22px;
   font-family: roboto, sans-serif;
   font-weight: 500;
+  font-size: 14px;
 }
 .saved__articles {
   margin: 0;
@@ -75,7 +76,15 @@
   background-position: center;
   background-image: url("/src/assets/trash.png");
 }
-
+.saved__card-date {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #b6bcbf;
+  margin-bottom: 12px;
+  height: 24px;
+  font-family: roboto-slab, sans-serif;
+  font-weight: 700;
+}
 .saved__card-title {
   font-size: 26px;
   font-weight: 400;
@@ -162,46 +171,60 @@
 }
 @media screen and (max-width: 320px) {
   .saved__news-info {
-    padding-left: 40px;
-    padding-top: 120px;
+    padding-top: 64px;
+    padding-left: 16px;
+    margin-top: 8px;
   }
   .saved__news-text {
-    width: 288px;
-    height: 68px;
-    margin-bottom: 50px;
+    font-size: 28px;
+    width: 315px;
     margin-top: 16px;
   }
-  .saved__articles {
-    max-width: 1440px;
-    width: 100%;
-    padding-left: 40px;
-    padding-right: 0px;
-    margin: 0;
+  .saved__news-keyword {
+    width: 285px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
+  .saved__articles {
+    padding: 24px 16px 0 16px;
+  }
+
   .saved__news-title {
-    margin-top: -10px;
-    font-size: 14px;
-   
+    font-size: 12px;
   }
   .saved__card-info {
-    margin-top: -130px;
-    width: 224px;
-    padding: 0;
+    margin-top: -95px;
   }
+
   .saved__card-title {
-    height: 88px;
-    line-break: 3;
+    overflow: hidden;
+    line-height: 24px;
     font-size: 22px;
-    padding-right: 16px;
-    margin-top: -8px;
+    height: 48px;
+    width: 250px;
+    padding-top: 10px;
   }
   .saved__card-description {
     font-size: 16px;
-    margin-bottom: -8px;
-    line-break: 3;
-    height: 88px;
-    padding-right: 18px;
-    width: 188px;
-    margin-top: -16px;
+    overflow: hidden;
+    height: 66px;
+    width: 250px;
+    line-height: 22px;
+    padding-top: 14px;
+    margin-bottom: 20px;
+  }
+  .saved__card-date {
+    margin-top: 16px;
+  }
+  .delete__button {
+    display: flex;
+    margin-top: 16px;
+    margin-left: 232px;
+  }
+  .image__keyword {
+    margin-top: 16px;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 24px;
   }
 }
