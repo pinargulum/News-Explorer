@@ -91,7 +91,7 @@ function App() {
   // save cards
   const handleSaveArticles = async (article, keyword) => {
     if (!currentUser) {
-      alert("please signin");
+      console.error("please signin");
       return;
     }
     await fetchArticles(article, keyword)
@@ -117,7 +117,7 @@ function App() {
     }
   };
 
-  ///////////////////////////////////////////////////////////// User /////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////// User /////////////////////////////////////////
   //signup
   const handleSignupForm = async (email, password, username) => {
     await registerUser(email, password, username)

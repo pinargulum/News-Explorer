@@ -17,6 +17,7 @@ const SigninModal = ({ isOpen, onClose, signupModal, handleSigninForm }) => {
       });
     }
   }, [isOpen]);
+ 
   function handleSubmit(evt) {
     evt.preventDefault();
     handleSigninForm(values.email, values.password);
@@ -66,6 +67,7 @@ const SigninModal = ({ isOpen, onClose, signupModal, handleSigninForm }) => {
         onClick={signupModal}
         className="second__button"
         type="button"
+       
       >
         or  Sign up 
       </button>

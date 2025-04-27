@@ -1,7 +1,7 @@
 import { query } from "firebase/firestore";
 import "../NewsCard/NewsCard.css";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function NewsCard({
   keyword,
@@ -14,18 +14,21 @@ function NewsCard({
   const [isSaved, setIsSaved] = useState(false);
   const [isHoverd, setIsHoved] = useState(false);
 
+  useEffect(() => {
+    const saved = savedArticles.find((saved) => saved.title === article.title);
+    setIsSaved(!!saved);
+  }, [savedArticles, article.title]);
+
   const handleSaveButton = () => {
-    if (currentUser) {
+    if (isSaved) {
       const saved = savedArticles.find(
         (saved) => saved.title === article.title,
       );
       if (saved) {
         handleDeleteArticle(saved.id);
-        setIsSaved(true);
-      } else {
-        setIsSaved(true);
-        handleSaveArticles(article, keyword);
       }
+    } else {
+      handleSaveArticles(article, keyword);
     }
   };
 
