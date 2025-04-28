@@ -1,7 +1,7 @@
 const url =
   process.env.NODE_ENV === "production"
-    ? "https://nomoreparties.co/news/v2/everything"
-    : "https://newsapi.org/v2/everything";
+    ? "https://news-proxy-server-qghz.onrender.com/news"
+    : "http://localhost:5000/news";
 
 function checkResponse(res) {
   if (res.ok) {
