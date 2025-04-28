@@ -74,6 +74,7 @@
   font-weight: 500;
   font-family: roboto, sans-serif;
   padding: 0;
+  text-decoration: none;
 }
 .user__logout {
   display: flex;

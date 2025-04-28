@@ -22,7 +22,7 @@
   max-width: 1440px;
   width: 100%;
   background-position: center;
-  background-image: url("src/assets/backgroundimage.png");
+  background-image: url("../../assets/backgroundimage.png");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
