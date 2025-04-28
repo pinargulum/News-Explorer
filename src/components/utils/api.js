@@ -17,9 +17,8 @@ fromDate.setDate(fromDate.getDate() - 7);
 const formattedFrom = fromDate.toISOString().split("T")[0];
 
 const getNews = async (query) => {
-  return fetch(
-    `${url}?q=${query}&from=${formattedFrom}&sortBy=publishedAt&pageSize100&apiKey=${apiKey}`,
-  ).then(checkResponse);
+  return fetch(`${url}?q=${query}`)
+    .then(checkResponse);
 };
 const Api = {
   getNews,
