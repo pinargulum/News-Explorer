@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/pinargulum/News-Explorer.git",
+  "homepage": "https://pinargulum.github.io/News-Explorer",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
