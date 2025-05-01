@@ -1,16 +1,28 @@
 .page {
-  max-width: 1440px;
-  width: 100%;
-  height: 100%;
   position: relative;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
+  color: white;
+  height: 100%;
 }
 
 .page__content {
+  display: flex;
+  flex-direction: column;
   max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
   height: 100%;
-  width: 100%;
 }
-
+.search__section {
+  position: relative;
+  height: 496px;
+  background-position: center;
+  background-image: url("../../assets/backgroundimage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 0;
+}
+.search__section-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 496px;
+}

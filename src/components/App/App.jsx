@@ -179,8 +179,6 @@ function App() {
         signinModal={signinModal}
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}
-       
-        
       />
     );
   };
@@ -188,82 +186,85 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <div className="page__content">
-       
-          {renderHeader()}
-       
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Main
-                  articles={articles}
-                  isSearched={isSearched}
-                  isLoading={isLoading}
-                  handleArticlesSearch={handleArticlesSearch}
-                  handleSaveArticles={handleSaveArticles}
-                  visibleCount={visibleCount}
-                  error={error}
-                  savedArticles={savedArticles}
-                  handleShowMoreButton={handleShowMoreButton}
-                  handleDeleteArticle={handleDeleteArticle}
+          <section className="search__section">
+            <div className="search__section-overlay">
+              {renderHeader()}
+
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Main
+                      articles={articles}
+                      isSearched={isSearched}
+                      isLoading={isLoading}
+                      handleArticlesSearch={handleArticlesSearch}
+                      handleSaveArticles={handleSaveArticles}
+                      visibleCount={visibleCount}
+                      error={error}
+                      savedArticles={savedArticles}
+                      handleShowMoreButton={handleShowMoreButton}
+                      handleDeleteArticle={handleDeleteArticle}
+                    />
+                  }
                 />
-              }
-            />
-            
-            <Route
-              path="/saved-news"
-              element={
-                <ProtectedRoute currentUser={currentUser}>
-                  <SavedNews
-                    isLoggedIn={isLoggedIn}
-                    savedArticles={savedArticles}
-                    handleDeleteArticle={handleDeleteArticle}
-                    handleLogout={handleLogout}
-                  />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/signin"
-              element={
-                <ProtectedRoute
-                  currentUser={!currentUser}
-                  isPublic={true}
-                >
-                  <signin />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                <ProtectedRoute
-                  currentUser={!currentUser}
-                  isPublic={true}
-                >
-                  <signup />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-          <SigninModal
-            isOpen={activeModal === "signin"}
-            onClose={closeActiveModal}
-            signupModal={signupModal}
-            handleSigninForm={handleSigninForm}
-          />
-          <SignupModal
-            isOpen={activeModal === "signup"}
-            onClose={closeActiveModal}
-            signinModal={signinModal}
-            handleSignupForm={handleSignupForm}
-          />
-          <ConfirmationModal
-            isOpen={activeModal === "confirmation"}
-            onClose={closeActiveModal}
-            signinModal={signinModal}
-          />
-          <Footer />
+
+                <Route
+                  path="/saved-news"
+                  element={
+                    <ProtectedRoute currentUser={currentUser}>
+                      <SavedNews
+                        isLoggedIn={isLoggedIn}
+                        savedArticles={savedArticles}
+                        handleDeleteArticle={handleDeleteArticle}
+                        handleLogout={handleLogout}
+                      />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/signin"
+                  element={
+                    <ProtectedRoute
+                      currentUser={!currentUser}
+                      isPublic={true}
+                    >
+                      <signin />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/signup"
+                  element={
+                    <ProtectedRoute
+                      currentUser={!currentUser}
+                      isPublic={true}
+                    >
+                      <signup />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+              <SigninModal
+                isOpen={activeModal === "signin"}
+                onClose={closeActiveModal}
+                signupModal={signupModal}
+                handleSigninForm={handleSigninForm}
+              />
+              <SignupModal
+                isOpen={activeModal === "signup"}
+                onClose={closeActiveModal}
+                signinModal={signinModal}
+                handleSignupForm={handleSignupForm}
+              />
+              <ConfirmationModal
+                isOpen={activeModal === "confirmation"}
+                onClose={closeActiveModal}
+                signinModal={signinModal}
+              />
+              <Footer />
+            </div>
+          </section>
         </div>
       </div>
     </CurrentUserContext.Provider>
