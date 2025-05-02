@@ -174,22 +174,23 @@ function App() {
     if (location.pathname === "/saved-news") {
       return <SavedNewsHeader handleLogout={handleLogout} />;
     }
-    return (
-      <Header
-        signinModal={signinModal}
-        isLoggedIn={isLoggedIn}
-        handleLogout={handleLogout}
-      />
-    );
+    if (location.pathname === "/") {
+      return (
+        <Header
+          signinModal={signinModal}
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+        />
+      );
+    }
   };
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <div className="page__content">
-          <section className="search__section">
-            <div className="search__section-overlay">
+          <div className="page__section">
+            <div className="page__overlay">
               {renderHeader()}
-
               <Routes>
                 <Route
                   path="/"
@@ -208,7 +209,6 @@ function App() {
                     />
                   }
                 />
-
                 <Route
                   path="/saved-news"
                   element={
@@ -264,7 +264,7 @@ function App() {
               />
               <Footer />
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </CurrentUserContext.Provider>

@@ -16,7 +16,7 @@ function SavedNewsHeader({ handleLogout }) {
   return (
     <div className="saved__news-header">
       <div className="saved__header-logo">NewsExplorer</div>
-      <div className="saved__header-nav">
+      <nav className="saved__header-nav">
         <Link
           to="/"
           className="saved__home-link"
@@ -27,19 +27,20 @@ function SavedNewsHeader({ handleLogout }) {
         <div className="saved__user-container">
           <p className="saved__artical">Saved articles</p>
 
-          <div
+          <button
             className="saved__user-logout"
             onClick={handleLogout}
+            type="button"
           >
             <p className="saved__username">{currentUser}</p>
             <img
               src={saveout}
               className="saved__logout"
-              type="submit"
+             alt="Logout"
             />
-          </div>
+          </button>
         </div>
-      </div>
+      </nav>
       <button
         onClick={openSavedMobileMenu}
         className="saved__menu-button"
@@ -47,33 +48,33 @@ function SavedNewsHeader({ handleLogout }) {
       ></button>
       {isSavedMenuOpen && (
         <div className="mobile__menu">
-          <div className="menu__nav">
-            <button
-              onClick={closeSavedMobileMenu}
-              className="menu__close-button"
-              type="button"
-            ></button>
-
-            <a
-              href="/"
-              className="menu__home-link"
+          <button
+            onClick={closeSavedMobileMenu}
+            className="mobile__close-button"
+            type="button"
+          ></button>
+          <nav className="mobile__nav">
+            <Link
+              to="/"
+              className="mobile__home-link"
             >
               Home
-            </a>
-            <Link to="/saved-news">
-              <p className="saved__text">Saved articles</p>
             </Link>
-            <div
-              className="logout"
+            <Link to="/saved-news">
+              <p className="mobile__saved-text">Saved articles</p>
+            </Link>
+            <button
+              className="mobile__logout"
               onClick={handleLogout}
             >
-              <p className="username">{currentUser}</p>
+              <p className="mobile__username">{currentUser}</p>
               <img
                 src={logout}
-                className="logout__image"
+                className="mobile__logout-image"
+                alt="Mobile Logout"
               />
-            </div>
-          </div>
+            </button>
+          </nav>
         </div>
       )}
     </div>

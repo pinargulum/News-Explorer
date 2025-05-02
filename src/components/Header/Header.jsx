@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 function Header({ signinModal, isLoggedIn, handleLogout }) {
   const currentUser = useContext(CurrentUserContext);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openMobileMenu = () => {
     setIsMenuOpen(true);
@@ -15,115 +14,119 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
   const closeMobileMenu = (e) => {
     setIsMenuOpen(false);
   };
-
   return (
     <div className="header">
-      <div className="header__logo">NewsExplorer</div>
+      <h1 className="header__logo">NewsExplorer</h1>
       {!currentUser ? (
-        <div className="header__nav">
-          <a
-            href="/"
-            className="header__home-link"
-          >
-            Home
-          </a>
-          <button
-            onClick={signinModal}
-            className="header__sign-button"
-            type="submit"
-          >
-            Sign in
-          </button>
-          <button
-            onClick={openMobileMenu}
-            className="menu__button"
-            type="button"
-          ></button>
+        <>
+          <nav className="header__nav">
+            <Link
+              to="/"
+              className="header__home-link"
+            >
+              Home
+            </Link>
+            <button
+              onClick={signinModal}
+              className="header__sign-button"
+              type="submit"
+            >
+              Sign in
+            </button>
+            <button
+              onClick={openMobileMenu}
+              className="menu__button"
+              type="button"
+            ></button>
+          </nav>
           {isMenuOpen && (
             <div className="mobile__menu">
-              <div className="menu__nav">
-                <button
-                  onClick={closeMobileMenu}
-                  className="menu__close-button"
-                  type="button"
-                ></button>
-
-                <a
-                  href="/"
-                  className="menu__home-link"
+              <button
+                onClick={closeMobileMenu}
+                className="mobile__close-button"
+                type="button"
+              ></button>
+              <nav className="mobile__nav">
+                <Link
+                  to="/"
+                  className="mobile__home-link"
                 >
                   Home
-                </a>
+                </Link>
                 <button
                   onClick={signinModal}
-                  className="menu__sign-button"
+                  className="mobile__sign-button"
                   type="submit"
                 >
                   Sign in
                 </button>
-              </div>
+              </nav>
             </div>
           )}
-        </div>
+        </>
       ) : (
-        <div className="user__container">
-          <Link
-            to="/"
-            className="header__home-link"
-          >
-            Home
-          </Link>
-          <Link to="/saved-news">
-            <p className="saved__artical-text">Saved articles</p>
-          </Link>
-          <div
-            className="user__logout"
-            onClick={handleLogout}
-          >
-            <p className="username">{currentUser}</p>
-            <img
-              src={logout}
-              className="logout__image"
-            />
-          </div>
+        <>
+          <nav className="user__container">
+            <Link
+              to="/"
+              className="header__home-link"
+            >
+              Home
+            </Link>
+            <Link to="/saved-news">
+              <p className="saved__artical-text">Saved articles</p>
+            </Link>
+            <button
+              className="user__logout"
+              onClick={handleLogout}
+              type="button"
+            >
+              <p className="username">{currentUser}</p>
+              <img
+                src={logout}
+                className="logout__image"
+                alt="Logout"
+              />
+            </button>
+            
+          </nav>
           <button
-            onClick={openMobileMenu}
-            className="menu__button"
-            type="button"
-          ></button>
-
+              onClick={openMobileMenu}
+              className="menu__button"
+              type="button"
+            ></button>
           {isMenuOpen && (
             <div className="mobile__menu">
-              <div className="menu__nav">
-                <button
-                  onClick={closeMobileMenu}
-                  className="menu__close-button"
-                  type="button"
-                ></button>
-
-                <a
-                  href="/"
-                  className="menu__home-link"
-                >
-                  Home
-                </a>
-                <Link to="/saved-news">
-                  <p className="saved__text">Saved articles</p>
-                </Link>
-                <div
-                  className="logout"
-                  onClick={handleLogout}
-                >
-                  <p className="username">{currentUser}</p>
-                  <img
-                    src={logout}
-                    className="logout__image"
-                  />
-                </div>
-              </div>
+              <button
+                onClick={closeMobileMenu}
+                className="mobile__close-button"
+                type="button"
+              ></button>
+              <nav className="mobile__nav">
+              <Link
+                to="/"
+                className="mobile__home-link"
+              >
+                Home
+              </Link>
+              <Link to="/saved-news">
+                <p className="mobile__saved-text">Saved articles</p>
+              </Link>
+              <button
+                className="mobile__logout"
+                onClick={handleLogout}
+              >
+                <p className="mobile__username">{currentUser}</p>
+                <img
+                  src={logout}
+                  className="mobile__logout-image"
+                  alt="Mobile Logout"
+                />
+              </button>
+              </nav>
             </div>
           )}
-        </div>
+        </>
       )}
     </div>
   );
