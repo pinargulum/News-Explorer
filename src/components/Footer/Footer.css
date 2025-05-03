@@ -1,111 +1,95 @@
 .footer {
   display: flex;
-  flex-direction: row;
+ 
+  justify-content: space-between;
   align-items: center;
+  padding: 20px 104px 20px 104px;
   max-width: 1440px;
-  width: 100%;
-  margin: 20px 0px 20px 0px;
-  background-color: white;
-  height: 80px;
-}
-
-.footer__year {
-  display: flex;
-  position: absolute;
-  margin-left: 104px;
-  width: 433px;
-  height: 22px;
-  font-size: 16px;
-  color: #b6bcbf;
-  font-weight: 400;
-  font-family: roboto, sans-serif;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 .footer__nav {
   display: flex;
-  width: 133px;
-  flex-direction: row;
-  align-items: center;
   gap: 40px;
-  font-family: roboto, sans-serif;
-  color: #1a1b22;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 400;
-  padding-left: 1061px;
-  padding-right: 40px;
-}
-.home {
-  color: #1a1b22;
-  text-decoration: none;
-}
-.TripleTen {
-  color: #1a1b22;
-  text-decoration: none;
-}
-.link {
-  color: #1a1b22;
-  text-decoration: none;
-}
-.social__links {
-  display: flex;
-  padding-left: 40px;
 
-  gap: 40px;
+  align-items: center;
 }
+.footer__links {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+
+  list-style: none;
+  color: black;
+}
+.footer__social {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+
+  list-style: none;
+  color: black;
+}
+.footer__copyright {
+  display: flex;
+  color: #b6bcbf;
+  font-size: 16px;
+  font-family: roboto, sans-serif;
+}
+
 .footer__link {
-  color: #1a1b22;
+  color: black;
+  text-decoration: none;
+}
+.footer__link-item {
+  display: flex;
+  color: black;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
+  font-family: roboto, sans-serif;
+  list-style: none;
 }
 @media screen and (max-width: 768px) {
-  .footer__year {
-    padding-left: 40px;
-    margin: 0;
-  }
-  .footer__nav {
-    padding-left: 513px;
-  }
-  .social__links {
-    margin-left: 40px;
+  .footer {
+    padding: 20px 40px 20px 40px;
   }
 }
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 425px) {
   .footer {
-    height: 176px;
-    margin-top: 100px;
-  }
-  .footer__year {
-    display: flex;
-    position: absolute;
-    font-size: 16px;
-    width: 288px;
-    margin-top: 132px;
-    padding-left: 16px;
-    padding-top: 40px;
-    line-height: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: left;
+    padding: 20px 16px 20px 16px;
   }
   .footer__nav {
-    flex-direction: column;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    gap: 120px;
+    align-items: flex-start;
   }
-  .home {
-    color: black;
-    width: 74px;
-    text-decoration: none;
-  }
-  .TripleTen {
-    color: black;
-    text-decoration: none;
-  }
-  .social__links {
+  .footer__link {
     display: flex;
-    position: absolute;
-    flex-direction: row;
-    gap: 24px;
-    padding-left: 232px;
-    margin-top: -60px;
+    flex-direction: column;
+   
+  }
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer__social {
+   margin: 0;
+   padding: 0;
+    
+  }
+  .footer__copyright {
+   
+  position: absolute;
+  margin-top: 130px;
+    
+ 
   }
 }

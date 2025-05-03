@@ -2,42 +2,60 @@ import "../Footer/Footer.css";
 import fb from "/src/assets/fb.png";
 import Github from "/src/assets/Github.png";
 import { Link } from "react-router-dom";
+import React from "react";
+
 function Footer() {
   return (
-    <div className="footer">
-     <h3 className="footer__year">© 2024 Supersite, Powered by News API</h3>
-      <div className="footer__nav">
-      
-        <a
-          href="/"
-          className="home"
-        >
-        Home
-        </a>
-        <a
-          href="https://tripleten.com"
-          className="TripleTen"
-        >
-          TripleTen
-        </a>
-       </div>
-       <div className="social__links">
-        <Link to="https://github.com/pinargulum/News-Explorer.git">
-       
-        <img
-          src={Github}
-          alt="Github"
-          className="social"
-        />
-        </Link>
-        <img
-          src={fb}
-          alt="facebook"
-          className="social"
-        />
-      </div>
-      </div>
-    
+    <footer className="footer">
+      <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
+      <nav className="footer__nav">
+        <ul className="footer__links">
+          <li className="footer__link-item">
+            <a href="/" className="footer__link">Home</a>
+          </li>
+          <li className="footer__link-item">
+            <a
+              href="https://tripleten.com"
+              target="_blank"
+              rel="noreferrer"
+              className="footer__link"
+            >
+              TripleTen
+            </a>
+          </li>
+        </ul>
+        <ul className="footer__social">
+          <li>
+            <a
+              href="https://github.com/pinargulum/News-Explorer.git"
+              className="footer__social-link"
+              rel="noreferrer"
+            >
+              <img
+                src={Github}
+                alt="Github"
+                className="social__icon"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com"
+              className="footer__social-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={fb}
+                alt="facebook"
+                className="social__icon"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   );
 }
+
 export default Footer;

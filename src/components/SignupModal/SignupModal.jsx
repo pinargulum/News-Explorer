@@ -33,6 +33,7 @@ const SignupModal = ({ isOpen, onClose, signinModal, handleSignupForm }) => {
       onClose={onClose}
       onSubmit={handleSubmit}
       modifierClass="signup"
+    
     >
       <label
         className="modal__label"

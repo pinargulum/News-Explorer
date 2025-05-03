@@ -18,7 +18,7 @@ function ModalWithForm({
         <button
           onClick={onClose}
           type="button"
-          className="modal__close-button modal__close-button_type_form"
+          className={`modal__close-button modal__close_${modifierClass}`}
         />
         <form
           className="modal__form"

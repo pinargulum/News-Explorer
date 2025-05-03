@@ -1,4 +1,5 @@
 import "../Header/Header.css";
+import React from "react";
 import logout from "../../assets/logout.png";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 import icon from "../../assets/icon.png";
@@ -73,15 +74,17 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
             >
               Home
             </Link>
-            <Link to="/saved-news">
-              <p className="saved__artical-text">Saved articles</p>
+            <Link 
+            to="/saved-news"
+            className="saved__artical-text">
+            Saved articles
             </Link>
             <button
               className="user__logout"
               onClick={handleLogout}
               type="button"
             >
-              <p className="username">{currentUser}</p>
+              {currentUser}
               <img
                 src={logout}
                 className="logout__image"
@@ -109,14 +112,15 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
               >
                 Home
               </Link>
-              <Link to="/saved-news">
-                <p className="mobile__saved-text">Saved articles</p>
+              <Link to="/saved-news"
+                className="mobile__saved-text">
+                Saved articles
               </Link>
               <button
                 className="mobile__logout"
                 onClick={handleLogout}
               >
-                <p className="mobile__username">{currentUser}</p>
+                {currentUser}
                 <img
                   src={logout}
                   className="mobile__logout-image"

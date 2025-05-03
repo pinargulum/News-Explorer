@@ -1,5 +1,6 @@
 import "../Header/SavedNewsHeader.css";
 import saveout from "../../assets/saveout.png";
+import React from "react";
 import logout from "../../assets/logout.png";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 import { createContext, useContext, useState } from "react";

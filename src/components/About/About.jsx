@@ -1,6 +1,6 @@
 import "../About/About.css";
 import profilePicture from "/src/assets/profilePicture.png";
-
+import React from "react";
 function About() {
   return (
     <section className="about__section">
