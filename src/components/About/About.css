@@ -42,8 +42,8 @@
   .author__avatar {
     margin-top: 61px;
     margin-left: 40px;
-    width: 232px;
-    height: 232px;
+    max-width: 232px;
+    max-height: 232px;
   }
 
   .author__title {
@@ -64,9 +64,8 @@
   }
   .author__avatar {
     margin-top: 61px;
-
-    width: 232px;
-    height: 232px;
+    max-width: 232px;
+    max-height: 232px;
   }
 
   .author__title {
@@ -74,6 +73,6 @@
     margin-top: 40px;
   }
   .about__author {
-    width: 260px;
+    max-width: 260px;
   }
 }

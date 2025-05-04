@@ -81,16 +81,14 @@
     margin: 60px auto;
     padding: 0px 16px 0px 16px;
     border-radius: 15px 15px 0 0;
-    height: 560px;
-    max-width: 300px;
-   
+    height: 500px;
+    max-width: 318px;
   }
- 
+
   .modal__input {
     max-width: 288px;
-   
-   }
-   .signin_submit {
+  }
+  .signin_submit {
     display: flex;
     position: absolute;
     width: 358px;
@@ -106,6 +104,5 @@
   }
   .second__button {
     width: 280px;
-    margin-left: -16px;
   }
 }

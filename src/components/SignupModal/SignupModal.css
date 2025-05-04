@@ -33,18 +33,16 @@
     border-color: #ffffff;
     background-color: #ffffff;
     height: 560px;
-    max-width: 300px;
+    max-width: 318px;
     padding: 0px 16px 0px 16px;
   }
   .modal__close_signup {
     bottom: 420px;
     left: 420px;
   }
-  
-  
+
   .second__button {
     width: 280px;
-    margin-top: 30px;
-   
+    top: 210px;
   }
 }

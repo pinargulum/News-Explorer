@@ -20,7 +20,7 @@ function SavedNews({
       {isLoggedIn && (
         <div className="saved__news">
           <div className="saved__news-info">
-            <h2 className="saved__news-title">Saved articles</h2>
+            <h1 className="saved__news-title">Saved articles</h1>
             <p className="saved__news-text">
               {currentUser}, you have {savedArticles.length} saved articles
             </p>
@@ -30,7 +30,7 @@ function SavedNews({
             </p>
           </div>
           <div className="saved__articles">
-            <ul className="articles__list">
+            <ul className="saved__articles-list">
               {savedArticles.slice(0, 6).map((article) => (
                 <li
                   className="card"

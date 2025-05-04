@@ -44,6 +44,7 @@
   font-weight: 500;
   background-color: #2f71e5;
 }
+
 @media screen and (max-width: 430px) {
   
   .show__more-button {
@@ -53,6 +54,7 @@
     height: 56px;
     padding: 0;
   }
+  
   .main__title {
     font-size: 36px;
     max-width: 285px;
