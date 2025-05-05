@@ -9,34 +9,26 @@ function checkResponse(res) {
   }
   return Promise.reject(`Error: ${res.status}`);
 }
-const apiKey = "ac7a0ca13c704884a094fc0e2084f160";
+
 //const baseUrl = "http://localhost:3001";
-const baseUrl = "https://newsapi.org/v2/everything?q=q&from=2025-04-04&sortBy=publishedAt&apiKey=ac7a0ca13c704884a094fc0e2084f160"
+
 const fromDate = new Date();
 fromDate.setDate(fromDate.getDate() - 7);
 const formattedFrom = fromDate.toISOString().split("T")[0];
-/*
+
 const getNews = async (query) => {
-  return fetch(`${url}?q=${query}`)
-    .then(checkResponse);
+  return fetch(`${url}?q=${query}`).then(checkResponse);
 };
-*/
+/*
 const getNews = async (query) => {
   return fetch("https://newsapi.org/v2/everything?q=q&from=2025-04-04&sortBy=publishedAt&apiKey=ac7a0ca13c704884a094fc0e2084f160")
     .then(checkResponse);
 };
+*/
 const Api = {
   getNews,
- 
 };
 export default Api;
-
-
-
-
-
-
-
 
 /*
   const mockArticles = [
