@@ -120,9 +120,7 @@
 .menu__button {
   display: none;
 }
-.mobile__menu {
-  display: none;
-}
+
 
 @media screen and (max-width: 768px) {
   

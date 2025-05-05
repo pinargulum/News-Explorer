@@ -53,7 +53,7 @@ function Main({
             Search
           </button>
         </form>
-
+</div>
         {isLoading && <Preloader />}
         {articles.length <= 0 && (
           <section className="message__section">
@@ -78,7 +78,9 @@ function Main({
         )}
         {isSearched && (
           <section className="results__section">
+            {articles.length > 0 && (
             <h2 className="search__results-title">Search Rusults</h2>
+            )}
             <ul className="articles__list">
               {articles.slice(0, visibleCount).map((article, index) => (
                 <NewsCard
@@ -102,7 +104,7 @@ function Main({
             )}
           </section>
         )}
-      </div>
+      
       <About />
     </section>
   );

@@ -1,10 +1,10 @@
 .about__section {
   width: 100%;
   max-width: 1440px;
-
   display: flex;
   padding: 80px 0 62px 0;
   background-color: white;
+  margin-top: 80px;
 }
 .author__avatar {
   margin-left: 104px;
@@ -33,9 +33,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about__section {
-    margin-top: 60px;
-  }
+ 
   .author__info {
     margin-left: 32px;
   }
@@ -50,6 +48,9 @@
     font-size: 30px;
     margin-top: 40px;
   }
+  .about__author {
+    max-width: 424px;
+  }
 }
 @media screen and (max-width: 425px) {
   .about__section {
@@ -57,6 +58,7 @@
     padding: 0;
     flex-direction: column;
     margin-bottom: 80px;
+    margin-top: 32px;
   }
   .author__info {
     margin-left: 16px;

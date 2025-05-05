@@ -34,12 +34,7 @@ function NewsCard({
 
   return (
     <li className="card">
-      <img
-        className="card__image"
-        src={article.urlToImage}
-        alt={article.title}
-      />
-      <div
+       <div
         className="button__container"
         onMouseEnter={() => setIsHoved(true)}
         onMouseLeave={() => setIsHoved(false)}
@@ -53,6 +48,12 @@ function NewsCard({
           className={isSaved ? "archive__button_active" : "archive__button"}
         ></button>
       </div>
+      <img
+        className="card__image"
+        src={article.urlToImage}
+        alt={article.title}
+      />
+     
       <div className="card__info">
         <h3 className="card__date">{article.publishedAt}</h3>
         <h3 className="card__title">{article.title}</h3>
