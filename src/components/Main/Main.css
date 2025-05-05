@@ -1,14 +1,14 @@
 .main {
   display: flex;
   flex-direction: column;
- 
- 
+}
+.search {
+  background-color: #f5f6f7;
 }
 .search__seaction {
   max-width: 608px;
   margin: 0 auto;
   color: white;
- 
 }
 .main__title {
   margin-bottom: 20px;
@@ -50,12 +50,10 @@
 .results__section {
   display: flex;
   flex-direction: column;
-  padding: 0px 104px 0 104px;
+  padding: 0px 104px;
   margin: 0;
-  background-color: #F5F6F7;
   font-size: 18px;
   font-family: roboto, sans-serif;
-  
 }
 .search__results-title {
   padding: 80px 0 64px 0;
@@ -69,8 +67,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 86px auto 0 auto;
-  padding: 86px 0 0 0;
+  margin: 0 auto;
+  padding: 56px 0 10px 0;
+  max-height: 182px;
+  background-color: #f5f6f7;
+  max-width: 1440px;
+  width: 100%;
 }
 .message__title {
   font-size: 26px;
@@ -81,7 +83,7 @@
   font-size: 18px;
   font-family: roboto, sans-serif;
   font-weight: 400;
-  color: #B6BCBF;
+  color: #b6bcbf;
   height: 48px;
   max-width: 250px;
   text-align: center;
@@ -93,7 +95,7 @@
   flex-wrap: wrap;
   gap: 16px;
   padding: 0;
-  margin: 0;
+  margin-bottom: 62px;
 }
 .show__more-button {
   display: flex;
@@ -102,7 +104,7 @@
   color: black;
   border: none;
   border-radius: 50px;
-  margin: 66px auto 80px auto;
+  margin: 26px auto 80px auto;
   background-color: white;
   padding: 0px 99px;
   justify-content: center;
@@ -112,10 +114,12 @@
 @media screen and (max-width: 768px) {
   .articles__list {
     gap: 8px;
-    
   }
   .results__section {
-    padding: 0px 40px 40px 40px;
+    padding: 0px 40px;
+  }
+  .search__results-title {
+    font-size: 30px;
   }
 }
 @media screen and (max-width: 430px) {
@@ -127,17 +131,16 @@
   .main__subtitle {
     padding-left: 16px;
     max-width: 288px;
-    
   }
   .search__form {
-   margin-top: 120px;
-   max-width: 270px;
-   width: 100%;
+    margin-top: 120px;
+    max-width: 270px;
+    width: 100%;
   }
   .search__form-input {
     flex: 1;
     padding: 17px 16px;
-   
+
     justify-content: center;
   }
   .search__form-button {
@@ -160,23 +163,18 @@
     background-color: #2f71e5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
-  
-  .message__section {
-    padding-bottom: 0;
-    padding-top: 120px;
-  }
+
   .search__results-title {
     font-size: 30px;
     max-width: 288px;
-    padding-left: 16px;
-    padding-top: 0px;
-    margin-top: 0;
+
+    padding: 0 16px 0px 16px;
   }
   .articles__list {
-    padding: 0 16px;
+    padding: 58px 16px 0 16px;
   }
   .results__section {
-padding-top: 40px;
+    padding: 40px 16px 0px 16px;
   }
   .search__seaction {
     height: 480px;

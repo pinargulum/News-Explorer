@@ -30,10 +30,11 @@
   color: black;
   font-family: roboto, sans-serif;
   font-weight: 400;
+  max-width: 600px;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
- 
   .author__info {
     margin-left: 32px;
   }

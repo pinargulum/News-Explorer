@@ -27,7 +27,7 @@ function Main({
     handleArticlesSearch(query);
   }
   return (
-    <section className="main">
+    <main>
       <div className="search__seaction">
         <h1 className="main__title">What's going on in the world?</h1>
         <p className="main__subtitle">
@@ -53,7 +53,8 @@ function Main({
             Search
           </button>
         </form>
-</div>
+      </div>
+      <section className="search">
         {isLoading && <Preloader />}
         {articles.length <= 0 && (
           <section className="message__section">
@@ -79,7 +80,7 @@ function Main({
         {isSearched && (
           <section className="results__section">
             {articles.length > 0 && (
-            <h2 className="search__results-title">Search Rusults</h2>
+              <h2 className="search__results-title">Search Rusults</h2>
             )}
             <ul className="articles__list">
               {articles.slice(0, visibleCount).map((article, index) => (
@@ -104,9 +105,9 @@ function Main({
             )}
           </section>
         )}
-      
+      </section>
       <About />
-    </section>
+    </main>
   );
 }
 

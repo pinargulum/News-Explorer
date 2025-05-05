@@ -12,9 +12,9 @@ function About() {
       <div className="author__info">
         <h2 className="author__title">About the author</h2>
         <p className="about__author">
-          My name is Pinar Gulum, and I am a Full-Stack Developer. I have experience
-          with JavaScript, HTML, CSS, React.js, Express.js, Git Bash, and
-          MongoDB.
+          My name is Pinar Gulum, and I am a Full-Stack Developer. I have
+          experience with JavaScript, HTML, CSS, React.js, Express.js, Git Bash,
+          and MongoDB.
         </p>
 
         <p className="about__author">

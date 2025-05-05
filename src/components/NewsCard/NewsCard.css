@@ -42,7 +42,6 @@
   width: 100%;
   height: 40px;
   background-position: center;
-
   background-image: url("/src/assets/archiveButton.png");
 }
 .archive__button:hover {
@@ -68,17 +67,20 @@
 }
 
 .archive__button_active {
+  display: flex;
   position: absolute;
-  background-position: center;
   background-repeat: no-repeat;
   top: 24px;
-  margin-left: 330px;
-  background-image: url("/src/assets/save-button-active.png");
+  right: 24px;
   cursor: pointer;
   border: none;
   border-radius: 8px;
-  width: 40px;
+  padding: 0;
+  max-width: 40px;
+  width: 100%;
   height: 40px;
+  background-position: center;
+  background-image: url("/src/assets/save-button-active.png");
 }
 
 .card__info {
@@ -146,13 +148,11 @@
     width: 100%;
     height: 150px;
   }
-  
 
   .saved__news-text {
     font-size: 30px;
     margin-bottom: 0;
   }
-  
 
   .saved__news-title {
     font-size: 14px;
@@ -179,7 +179,7 @@
     margin-top: 0;
     margin-bottom: 12px;
   }
- 
+
   .archive__button {
     margin-top: 0px;
     margin-left: 170px;
@@ -201,9 +201,6 @@
     width: 100%;
     height: 150px;
   }
- 
- 
-  
 
   .card__title {
     font-size: 14px;
@@ -230,8 +227,12 @@
     margin-top: 0;
     margin-bottom: 12px;
   }
- 
+
   .archive__button {
+    margin-top: 0px;
+    margin-left: 170px;
+  }
+  .archive__button_active {
     margin-top: 0px;
     margin-left: 170px;
   }
@@ -240,10 +241,3 @@
     font-size: 16px;
   }
 }
-
-
-
-  
-
- 
-

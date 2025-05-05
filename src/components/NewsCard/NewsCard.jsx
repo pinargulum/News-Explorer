@@ -34,7 +34,7 @@ function NewsCard({
 
   return (
     <li className="card">
-       <div
+      <div
         className="button__container"
         onMouseEnter={() => setIsHoved(true)}
         onMouseLeave={() => setIsHoved(false)}
@@ -53,7 +53,7 @@ function NewsCard({
         src={article.urlToImage}
         alt={article.title}
       />
-     
+
       <div className="card__info">
         <h3 className="card__date">{article.publishedAt}</h3>
         <h3 className="card__title">{article.title}</h3>

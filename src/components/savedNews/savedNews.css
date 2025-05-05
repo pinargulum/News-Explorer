@@ -97,7 +97,7 @@
   font-weight: 400;
   height: 60px;
   line-height: 30px;
-  margin-top: 0px;
+  margin: 0px;
   font-family: roboto-slab, sans-serif;
   overflow: hidden;
   display: -webkit-box;
@@ -109,7 +109,7 @@
   height: 110px;
   line-height: 22px;
   flex-grow: 1;
- 
+
   margin-bottom: 16px;
   overflow: hidden;
   display: -webkit-box;
@@ -162,7 +162,6 @@
     font-size: 16px;
   }
   .saved__card-title {
-    height: 88px;
     line-break: 3;
     font-size: 22px;
     margin-bottom: 10px;
@@ -187,8 +186,8 @@
     margin-left: 170px;
   }
   .saved__card-source {
-margin: 0;
-font-size: 16px;
+    margin: 0;
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 425px) {
@@ -214,12 +213,6 @@ font-size: 16px;
 
   .saved__news-title {
     font-size: 12px;
-  }
-  .saved__card-info {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 200px;
   }
 
   .saved__card-title {
