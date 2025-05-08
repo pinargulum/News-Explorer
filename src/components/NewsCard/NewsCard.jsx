@@ -58,8 +58,9 @@ function NewsCard({
         <h3 className="card__date">{article.publishedAt}</h3>
         <h3 className="card__title">{article.title}</h3>
         <p className="card__description">{article.description}</p>
-        <p className="card__source">{article.source.name}</p>
+       
       </div>
+      <p className="card__source">{article.source.name}</p>
     </li>
   );
 }

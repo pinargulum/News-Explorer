@@ -1,22 +1,20 @@
 .card {
   display: flex;
-  position: relative;
   flex-direction: column;
   color: black;
   list-style: none;
   background-color: #fff;
   border-radius: 16px;
   overflow: hidden;
-  width: 100%;
-  margin: 0;
   max-width: 400px;
+  width: 100%;
   height: 576px;
   padding: 0;
   border: none;
   box-shadow: 0 2px 6px rgba(8, 29, 45, 0.4);
 }
 .card__image {
-  width: 100%;
+  max-width: 400px;
   height: 272px;
   object-fit: cover;
 }
@@ -85,147 +83,147 @@
 
 .card__info {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 250px;
-  padding: 24px;
+  
+      flex-grow: 1;
+      flex-direction: column;
+      padding: 24px 24px 0 24px;
+      max-width: 352px;
+      width: 100%;
+      margin: 0;
 }
 .card__date {
   text-transform: uppercase;
   font-size: 18px;
   color: #b6bcbf;
+  margin-top: 0;
   margin-bottom: 12px;
-  height: 24px;
   font-family: roboto-slab, sans-serif;
   font-weight: 700;
-  margin-top: 20;
 }
 .card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-size: 26px;
   font-weight: 400;
-  height: 60px;
-  line-height: 30px;
   margin-top: 0px;
   font-family: roboto-slab, sans-serif;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  line-break: 3;
-  margin-bottom: 16px;
+  margin-bottom: 0px;
 }
 .card__description {
-  font-size: 16px;
-  height: 110px;
-  line-height: 22px;
-  flex-grow: 1;
-  margin-bottom: 18px;
-  overflow: hidden;
   display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
-  overflow-wrap: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 16px;
   font-family: roboto, sans-serif;
   font-weight: 400;
-  line-break: 4;
+  margin-bottom: 18px;
+  margin-top: 16px;
+  width: 100%;
 }
 .card__source {
   font-family: roboto-slab;
-  text-transform: uppercase;
-  font-size: 16px;
-  line-height: 20px;
-  color: #b6bcbf;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 24px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #b6bcbf;
+    font-weight: 700;
+    padding: 0 24px;
 }
 @media screen and (max-width: 768px) {
   .card {
-    max-width: 224px;
-    width: 100%;
+    width: 224px;
     height: 420px;
   }
-  .card__image {
-    max-width: 224px;
-    width: 100%;
-    height: 150px;
-  }
-
-  .saved__news-text {
-    font-size: 30px;
-    margin-bottom: 0;
-  }
-
-  .saved__news-title {
-    font-size: 14px;
-    margin: 8px 0;
-  }
-  .card__info {
-    top: 130px;
-    padding: 24px;
-  }
-  .card__date {
-    font-size: 16px;
-    margin-bottom: 0;
-  }
-  .card__title {
-    height: 88px;
-    line-break: 3;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .card__description {
-    font-size: 16px;
-    line-break: 3;
-    height: 88px;
-    margin-top: 0;
-    margin-bottom: 12px;
-  }
-
   .archive__button {
     margin-top: 0px;
     margin-left: 170px;
   }
-  .card__source {
+  .archive__button_active {
+    margin-top: 0px;
+    margin-left: 170px;
+  }
+  .card__image {
+    width: 224px;
+    height: 150px;
+  }
+  .card__info {
+    padding: 16px;
+    max-width: 192px;
+    width: 100%;
     margin: 0;
+  }
+  .card__date {
     font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .card__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-clamp: 2;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    font-size: 22px;
+  }
+  .card__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 16px;
+    max-height: 90px;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  .card__source {
+    margin-bottom: 16px;
+    padding: 0 16px;
+    margin-top: 12px;
+    font-size: 16px;
+    overflow: hidden;
   }
 }
 
 @media screen and (max-width: 425px) {
   .card {
-    max-width: 288px;
-    width: 100%;
+    width: 288px;
     height: 420px;
   }
   .card__image {
-    max-width: 288px;
-    width: 100%;
+    width: 288px;
     height: 150px;
   }
-
-  .card__title {
-    font-size: 14px;
-    margin: 8px 0;
-  }
   .card__info {
-    top: 130px;
+    max-width: 256px;
     padding: 16px;
+    height: 244px;
+    margin: 0;
   }
   .card__date {
     font-size: 16px;
-    margin-bottom: 0;
+    margin: 0px 0 10px 0;
   }
+
   .card__title {
-    height: 88px;
-    line-break: 3;
-    font-size: 22px;
-    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
+
   .card__description {
     font-size: 16px;
-    line-break: 3;
-    height: 88px;
     margin-top: 0;
-    margin-bottom: 12px;
+   
   }
 
   .archive__button {
@@ -237,7 +235,10 @@
     margin-left: 170px;
   }
   .card__source {
-    margin: 0;
+    margin-bottom: 16px;
+    padding: 0 16px;
+    margin-top: 12px;
     font-size: 16px;
+    overflow: hidden;
   }
 }

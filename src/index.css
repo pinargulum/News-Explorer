@@ -13,9 +13,6 @@ body {
    * Render the `main` element consistently in IE.
    */
 
-main {
-  display: block;
-}
 
 /**
    * Remove the gray background on active links in IE 10.
