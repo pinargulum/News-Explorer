@@ -8,7 +8,7 @@ import SavedNewsHeader from "../Header/SavedNewsHeader.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
-import SearchForm from "../SearchForm/SearchForm.jsx";
+
 import Footer from "../Footer/Footer";
 import CurrentUserContext from "../utils/contexts/CurrentUserContext.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
@@ -188,11 +188,11 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <div className="page__overlay">
-          <div className="overlay">
+      <div className="page__overlay">
+      <div className="overlay">
             {renderHeader()}
-            <SearchForm handleArticlesSearch={handleArticlesSearch} />
-          </div>
+        
+          
           <Routes>
             <Route
               path="/"
@@ -267,7 +267,8 @@ function App() {
 
           <Footer />
         </div>
-      </div>
+     </div>
+     </div>
     </CurrentUserContext.Provider>
   );
 }

@@ -16,10 +16,10 @@ function SavedNews({
   const displayKeywords = keywords.slice(0, 2).join(", ");
   const otherCount = keywords.length - 2;
   return (
-    <>
+    <main>
       {isLoggedIn && (
         <div className="saved__news">
-          <div className="saved__news-info">
+          <section className="saved__news-info">
             <h1 className="saved__news-title">Saved articles</h1>
             <p className="saved__news-text">
               {currentUser}, you have {savedArticles.length} saved articles
@@ -28,16 +28,17 @@ function SavedNews({
               By keywords: {displayKeywords}{" "}
               {otherCount > 0 ? `, and ${otherCount} other` : ""}
             </p>
-          </div>
+          </section>
+          <section className="card__section">
           <div className="saved__articles">
             <ul className="saved__articles-list">
               {savedArticles.slice(0, 6).map((article) => (
                 <li
-                  className="card"
+                  className="saved__card"
                   key={article.id}
                 >
                   <img
-                    className="card__image"
+                    className="saved__card-image"
                     src={article.urlToImage || null}
                     alt={article.title}
                   />
@@ -55,17 +56,18 @@ function SavedNews({
                     <p className="saved__card-description">
                       {article.description}
                     </p>
-                    <p className="saved__card-source">
-                      {article.source?.name || article.source}
-                    </p>
                   </div>
+                  <p className="saved__card-source">
+                    {article.source?.name || article.source}
+                  </p>
                 </li>
               ))}
             </ul>
-          </div>
+            </div>
+          </section>
         </div>
       )}
-    </>
+    </main>
   );
 }
 export default SavedNews;

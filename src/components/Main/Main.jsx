@@ -5,6 +5,7 @@ import NewsCard from "../NewsCard/NewsCard.jsx";
 import About from "../About/About";
 import notFound from "../../assets/notFound.png";
 import Preloader from "../Preloader/Preloader.jsx";
+import SearchForm from "../SearchForm/SearchForm.jsx";
 
 function Main({
   isSearched,
@@ -12,6 +13,7 @@ function Main({
   isLoading,
   handleSaveArticles,
   savedArticles,
+  handleArticlesSearch,
   handleShowMoreButton,
   visibleCount,
   handleDeleteArticle,
@@ -20,6 +22,7 @@ function Main({
   const [query, setQuery] = useState("");
   return (
     <main>
+       <SearchForm handleArticlesSearch={handleArticlesSearch} />
       <section className="search">
         {isLoading && <Preloader />}
         {articles.length <= 0 && (
