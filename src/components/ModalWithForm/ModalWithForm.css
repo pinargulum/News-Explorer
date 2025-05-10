@@ -8,15 +8,17 @@
   background-color: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   z-index: 999;
-  margin: auto;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
 }
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 .modal__content_type_form {
   font-family: inter, sans-serif;
   color: black;
-  margin: 207px auto;
   border: solid 1px;
   border-radius: 16px;
   border-color: #ffffff;
@@ -25,7 +27,6 @@
   width: 430px;
   padding: 34px 36px;
   box-sizing: border-box;
-  position: relative;
 }
 .modal__form {
   display: flex;

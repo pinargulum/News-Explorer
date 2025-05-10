@@ -16,7 +16,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
     setIsMenuOpen(false);
   };
   return (
-    <div className="header">
+    <header className="header">
       <h1 className="header__logo">NewsExplorer</h1>
       {!currentUser ? (
         <>
@@ -132,7 +132,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
           )}
         </>
       )}
-    </div>
+    </header>
   );
 }
 

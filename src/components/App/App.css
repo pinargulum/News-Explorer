@@ -9,7 +9,8 @@
   margin: 0 auto;
   padding: 0;
 }
-.page__overlay {
+.hero {
+  position: relative;
   width: 100%;
   background-position: center;
   background-image: url("../../assets/backgroundimage.png");
@@ -18,8 +19,10 @@
   height: 576px;
   margin: 0 auto;
 }
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+.hero__overlay {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
   height: 576px;
   width: 100%;
   margin: 0 auto;

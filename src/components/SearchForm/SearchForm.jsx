@@ -11,7 +11,7 @@ const SearchForm = ({ handleArticlesSearch }) => {
     handleArticlesSearch(query);
   }
   return (
-    <div className="search__form">
+    <section className="search__form">
     <div className="search__form-container">
       <h1 className="search__form-title">What's going on in the world?</h1>
       <p className="search__form-subtitle">
@@ -38,7 +38,7 @@ const SearchForm = ({ handleArticlesSearch }) => {
         </button>
       </form>
     </div>
-    </div>
+    </section>
   );
 };
 export default SearchForm;

@@ -83,7 +83,6 @@
 
 .card__info {
   display: flex;
-
   flex-grow: 1;
   flex-direction: column;
   padding: 24px 24px 0 24px;
@@ -135,7 +134,7 @@
   font-weight: 700;
   padding: 0 24px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 860px) {
   .card {
     width: 224px;
     height: 420px;
@@ -190,11 +189,10 @@
     padding: 0 16px;
     margin-top: 12px;
     font-size: 16px;
-    overflow: hidden;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 544px) {
   .card {
     width: 288px;
     height: 420px;
@@ -238,6 +236,5 @@
     padding: 0 16px;
     margin-top: 12px;
     font-size: 16px;
-    overflow: hidden;
   }
 }

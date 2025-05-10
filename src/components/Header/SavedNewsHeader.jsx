@@ -15,7 +15,7 @@ function SavedNewsHeader({ handleLogout }) {
     setSavedIsMenuOpen(false);
   };
   return (
-    <div className="saved__news-header">
+    <header className="saved__news-header">
       <div className="saved__header-logo">NewsExplorer</div>
       <nav className="saved__user-container">
         <Link
@@ -82,7 +82,7 @@ function SavedNewsHeader({ handleLogout }) {
           </nav>
         </div>
       )}
-    </div>
+    </header>
   );
 }
 export default SavedNewsHeader;
