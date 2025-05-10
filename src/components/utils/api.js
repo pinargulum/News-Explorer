@@ -17,12 +17,7 @@ const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 const getNews = async (query) => {
   return fetch(`${url}?q=${query}&from=${formattedFrom}&sortBy=publishedAt&apiKey=${apiKey}`).then(checkResponse);
 };
-/*
-const getNews = async (query) => {
-  return fetch(`https://newsapi.org/v2/everything?q=${query}&from=${formattedFrom}&sortBy=publishedAt&apiKey=ac7a0ca13c704884a094fc0e2084f160`)
-    .then(checkResponse);
-};
-*/
+
 const Api = {
   getNews,
 };

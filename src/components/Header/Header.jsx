@@ -19,7 +19,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
     <header className="header">
       <h1 className="header__logo">NewsExplorer</h1>
       {!currentUser ? (
-        <>
+        <div className="header__container">
           <nav className="header__nav">
             <Link
               to="/"
@@ -64,7 +64,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
               </nav>
             </div>
           )}
-        </>
+        </div>
       ) : (
         <>
           <nav className="user__container">

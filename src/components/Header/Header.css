@@ -168,6 +168,11 @@
     background-image: url("/src/assets/icon.png");
     background-repeat: no-repeat;
   }
+  .header__container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
   .mobile__menu {
     display: flex;
     position: absolute;
