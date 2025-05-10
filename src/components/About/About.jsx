@@ -3,14 +3,14 @@ import profilePicture from "/src/assets/profilePicture.png";
 import React from "react";
 function About() {
   return (
-    <section className="about__section">
+    <section className="about">
       <img
         src={profilePicture}
-        alt="author picture"
-        className="author__avatar"
+        alt="about picture"
+        className="about__avatar"
       />
-      <div className="author__info">
-        <h2 className="author__title">About the author</h2>
+      <div className="about__info">
+        <h2 className="about__title">About the author</h2>
         <p className="about__author">
           My name is Pinar Gulum, and I am a Full-Stack Developer. I have
           experience with JavaScript, HTML, CSS, React.js, Express.js, Git Bash,

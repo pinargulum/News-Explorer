@@ -19,15 +19,26 @@
   margin: 0;
   order: 1;
   font-family: Roboto, sans-serif;
- 
 }
 
 .footer__nav {
   display: flex;
   gap: 40px;
   order: 2;
+  align-items: center;
 }
-
+.footer__links {
+  display: flex;
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  list-style: none;
+  flex-direction: row;
+  gap: 40px;
+}
 .footer__link {
   color: #000;
   text-decoration: none;
@@ -39,7 +50,6 @@
 .footer__link:hover {
   opacity: 0.6;
 }
-
 .footer__social {
   display: flex;
   gap: 40px;
@@ -61,7 +71,6 @@
   opacity: 0.6;
 }
 
-/* 1024px'e kadar: daha dar padding */
 @media screen and (min-width: 579px) and (max-width: 1024px) {
   .footer {
     padding: 40px;
@@ -71,10 +80,10 @@
   }
   .footer__social {
     gap: 20px;
+  }
 }
-}
-/* 768px ve altı: elemanlar ortalanır, copyright en altta olur */
-@media screen and (max-width: 579px) {
+
+@media screen and (max-width: 648px) {
   .footer {
     display: flex;
     align-items: center;
@@ -90,16 +99,22 @@
   }
 
   .footer__nav {
-    flex-direction: column;
-    width: 72px;
-    gap: 20px;
+    gap: 0;
+    margin: 0 auto;
     order: 1;
-    margin: 0 auto 0 16px;
   }
-
+  .footer__links {
+    flex-direction: column;
+    padding-left: 16px;
+    margin: 0;
+    height: 72px;
+    width: 150px;
+    gap: 20px;
+  }
   .footer__social {
-    height: 50px;
     order: 2;
     width: 100px;
+    height: 70px;
+    padding-left: 50px;
   }
 }

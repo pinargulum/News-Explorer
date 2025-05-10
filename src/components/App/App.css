@@ -10,13 +10,16 @@
   padding: 0;
 }
 .hero {
+  display: flex;
   position: relative;
   width: 100%;
-  background-position: center;
-  background-image: url("../../assets/backgroundimage.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+}
+.hero__background {
+ 
+ 
+  background-color: rgba(0, 0, 0, 0.4);
   height: 576px;
+  width: 100%;
   margin: 0 auto;
 }
 .hero__overlay {
@@ -26,4 +29,9 @@
   height: 576px;
   width: 100%;
   margin: 0 auto;
+  background-position: center;
+  background-image: url("../../assets/backgroundimage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  
 }

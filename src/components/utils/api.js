@@ -1,7 +1,7 @@
 const url =
   process.env.NODE_ENV === "production"
     ? "https://news-proxy-server-qghz.onrender.com/news"
-    : "http://localhost:5000/news";
+    : "/news";
 
 function checkResponse(res) {
   if (res.ok) {
@@ -10,21 +10,19 @@ function checkResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
-//const baseUrl = "http://localhost:3001";
-
 const fromDate = new Date();
 fromDate.setDate(fromDate.getDate() - 7);
 const formattedFrom = fromDate.toISOString().split("T")[0];
-/*
+const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 const getNews = async (query) => {
-  return fetch(`${url}?q=${query}`).then(checkResponse);
+  return fetch(`${url}?q=${query}&from=${formattedFrom}&sortBy=publishedAt&apiKey=${apiKey}`).then(checkResponse);
 };
-*/
+/*
 const getNews = async (query) => {
   return fetch(`https://newsapi.org/v2/everything?q=${query}&from=${formattedFrom}&sortBy=publishedAt&apiKey=ac7a0ca13c704884a094fc0e2084f160`)
     .then(checkResponse);
 };
-
+*/
 const Api = {
   getNews,
 };

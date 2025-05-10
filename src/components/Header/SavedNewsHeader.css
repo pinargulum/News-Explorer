@@ -1,3 +1,6 @@
+.searh__form {
+  display: none;
+}
 .saved__news-header {
   display: flex;
   flex-direction: row;

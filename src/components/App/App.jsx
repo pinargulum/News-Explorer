@@ -189,11 +189,19 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <section className="hero">
-          <div className="hero__overlay">
-            {renderHeader()}
-            <SearchForm handleArticlesSearch={handleArticlesSearch} />
-          </div>
+          {location.pathname === "/" && (
+            <>
+              <div className="hero__overlay">
+                <div className="hero__background">
+                  {renderHeader()}
+                  <SearchForm handleArticlesSearch={handleArticlesSearch} />
+                </div>
+              </div>
+            </>
+          )}
+          {location.pathname === "/saved-news" && renderHeader()}
         </section>
+
         <Routes>
           <Route
             path="/"

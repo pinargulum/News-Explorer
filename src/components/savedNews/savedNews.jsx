@@ -18,51 +18,53 @@ function SavedNews({
   return (
     <main>
       {isLoggedIn && (
-        <div className="saved__news">
-          <section className="saved__news-info">
-            <h1 className="saved__news-title">Saved articles</h1>
-            <p className="saved__news-text">
+        <div className="saved-news">
+          <section className="saved-news__info">
+            <h1 className="saved-news__title">Saved articles</h1>
+            <p className="saved-news__text">
               {currentUser}, you have {savedArticles.length} saved articles
             </p>
-            <p className="saved__news-keyword">
+            <p className="saved-news__keyword">
               By keywords: {displayKeywords}{" "}
               {otherCount > 0 ? `, and ${otherCount} other` : ""}
             </p>
           </section>
-          <section className="card__section">
-          <div className="saved__articles">
-            <ul className="saved__articles-list">
-              {savedArticles.slice(0, 6).map((article) => (
-                <li
-                  className="saved__card"
-                  key={article.id}
-                >
-                  <img
-                    className="saved__card-image"
-                    src={article.urlToImage || null}
-                    alt={article.title}
-                  />
-                  <p className="image__keyword">{article.keyword}</p>
+          <section className="saved-card">
+            <div className="saved-card__articles">
+              <ul className="saved-card__list">
+                {savedArticles.slice(0, 6).map((article) => (
+                  <li
+                    className="saved-card__list-item"
+                    key={article.id}
+                  >
+                    <img
+                      className="saved-card__image"
+                      src={article.urlToImage || null}
+                      alt={article.title}
+                    />
+                    <p className="saved-card__keyword">{article.keyword}</p>
 
-                  <button
-                    onClick={() => handleDeleteArticle(article.id)}
-                    type="button"
-                    className="delete__button"
-                  ></button>
+                    <button
+                      onClick={() => handleDeleteArticle(article.id)}
+                      type="button"
+                      className="saved-card__delete-button"
+                    ></button>
 
-                  <div className="saved__card-info">
-                    <h3 className="saved__card-date">{article.publishedAt}</h3>
-                    <h3 className="saved__card-title">{article.title}</h3>
-                    <p className="saved__card-description">
-                      {article.description}
+                    <div className="saved-card__info">
+                      <h3 className="saved-card__date">
+                        {article.publishedAt}
+                      </h3>
+                      <h3 className="saved-card__title">{article.title}</h3>
+                      <p className="saved-card__description">
+                        {article.description}
+                      </p>
+                    </div>
+                    <p className="saved-card__source">
+                      {article.source?.name || article.source}
                     </p>
-                  </div>
-                  <p className="saved__card-source">
-                    {article.source?.name || article.source}
-                  </p>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
         </div>

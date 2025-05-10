@@ -23,7 +23,6 @@ function Main({
   return (
     <main>
     
-
       {isLoading && <Preloader />}
       {articles.length <= 0 && (
         <section className="message__section">
