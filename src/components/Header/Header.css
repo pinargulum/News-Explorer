@@ -8,6 +8,7 @@
   border-bottom: solid 1px;
   border-bottom-color: light grey;
   margin: 0 auto;
+
 }
 .header__logo {
   color: white;
@@ -19,6 +20,7 @@
 }
 .header__nav {
   display: flex;
+ 
   flex-direction: row;
   align-items: center;
   color: white;
@@ -119,6 +121,9 @@
 .menu__button {
   display: none;
 }
+.mobile__menu {
+  display: none;
+}
 
 @media screen and (min-width: 562px) and (max-width: 1200px) {
   .menu__button {
@@ -170,9 +175,15 @@
   }
   .header__container {
     display: flex;
-    position: relative;
+    position: absolute;
     flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    max-width: 561px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
   }
+
   .mobile__menu {
     display: flex;
     position: absolute;

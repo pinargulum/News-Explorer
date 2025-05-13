@@ -113,8 +113,9 @@
   }
   .footer__social {
     order: 2;
-    width: 100px;
+    width: 70px;
     height: 70px;
     padding-left: 50px;
+    gap: 10px;
   }
 }

@@ -16,7 +16,7 @@ function SavedNewsHeader({ handleLogout }) {
   };
   return (
     <header className="saved__news-header">
-      <div className="saved__header-logo">NewsExplorer</div>
+      <h1 className="saved__header-logo">NewsExplorer</h1>
       <nav className="saved__user-container">
         <Link
           to="/"
