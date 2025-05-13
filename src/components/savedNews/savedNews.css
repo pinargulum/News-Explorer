@@ -111,12 +111,13 @@
   width: 100%;
   height: 40px;
   background-position: center;
-  background-image: url("/src/assets/trash.png");
-  opacity: 0.5;
+  background-image: url("/src/assets/trash-nothover.png");
+ 
 }
 .saved-card__delete-button:hover {
   opacity: 1;
   cursor: pointer;
+  background-image: url("/src/assets/trash.png");
 }
 .saved-card__info {
   display: flex;

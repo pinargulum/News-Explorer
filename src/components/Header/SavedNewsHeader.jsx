@@ -26,7 +26,7 @@ function SavedNewsHeader({ handleLogout }) {
         </Link>
         <Link
           to="/saved-news"
-          className="link__text"
+          className="saved__header-link"
         >
           Saved articles
         </Link>
