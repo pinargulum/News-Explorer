@@ -65,7 +65,7 @@ const SigninModal = ({ isOpen, onClose, signupModal, handleSigninForm }) => {
       </label>
       <button
         onClick={signupModal}
-        className="second__button"
+        className="modal__submit-second-button"
         type="button"
        
       >

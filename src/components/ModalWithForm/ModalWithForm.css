@@ -17,6 +17,7 @@
   opacity: 1;
 }
 .modal__content_type_form {
+  position: relative;
   font-family: inter, sans-serif;
   color: black;
   border: solid 1px;
@@ -77,8 +78,6 @@
 }
 
 .modal__submit {
-  display: flex;
-  position: absolute;
   font-family: roboto, sans-serif;
   font-weight: 500;
   max-width: 358px;
@@ -88,7 +87,7 @@
   background-color: #e6e8eb;
   border: solid 1px;
   border-radius: 50px;
-  bottom: 64px;
+  margin-top: 40px;
   align-items: center;
   justify-content: center;
   font-size: 18px;
@@ -115,22 +114,25 @@
   background-color: #b6bcbf;
 }
 
-.modal__close-button {
+.modal__close_button {
   position: absolute;
   border: none;
   background-image: url("/src/assets/modalClose.png");
   bottom: 390px;
-  left: 410px;
+  left: 430px;
   background-color: transparent;
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;
 }
 @media screen and (max-width: 425px) {
-  .modal__close-button_type_form {
-    left: 200px;
+  /*
+  .modal__close_button {
+    left: 270px;
     background-image: url("/src/assets/menuClose.png");
+    bottom: 530px;
   }
+    */
   .modal__input {
     max-width: 280px;
   }

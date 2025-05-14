@@ -1,4 +1,5 @@
 .modal__content_type_signup {
+  position: relative;
   border: solid 1px;
   border-radius: 20px;
   border-color: #ffffff;
@@ -10,23 +11,23 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
-  position: relative;
+ 
   color: black;
 }
-.modal__close_signup {
-  position: absolute;
+.modal__close_button_signup {
+  
   border: none;
   background-image: url("/src/assets/modalClose.png");
   bottom: 470px;
-  left: 420px;
+  left: 400px;
   background-color: transparent;
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 425px) {
-  .modal_content_signup_form {
+@media screen and (max-width: 500px) {
+  .modal__content_type_signup {
     margin: 56px auto;
     border: solid 1px;
     border-radius: 15px 15px 0 0;
@@ -36,13 +37,14 @@
     max-width: 318px;
     padding: 0px 16px 0px 16px;
   }
-  .modal__close_signup {
-    bottom: 420px;
+  .modal__close_button_signup {
+    bottom: 520px;
     left: 420px;
+    
   }
 
-  .second__button {
+  .modal__submit-second-button {
     width: 280px;
-    top: 210px;
+    top: 280px;
   }
 }
