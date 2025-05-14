@@ -105,7 +105,7 @@
   }
   .footer__links {
     flex-direction: column;
-    padding-left: 16px;
+    padding-left: 0px;
     margin: 0;
     height: 72px;
     width: 150px;
@@ -113,9 +113,8 @@
   }
   .footer__social {
     order: 2;
-    width: 70px;
     height: 70px;
-    padding-left: 50px;
+    padding-left: 80px;
     gap: 10px;
   }
 }
