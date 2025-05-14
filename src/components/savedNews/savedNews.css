@@ -97,6 +97,18 @@
   font-weight: 500;
   font-size: 14px;
 }
+.saved-card__delete-wrapper {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+.saved-card__delete-wrapper:hover .saved-card__delete-text,
+.saved-card__delete-wrapper:hover .saved-card__delete-button {
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
 .saved-card__delete-button {
   display: flex;
   position: absolute;
@@ -112,13 +124,37 @@
   height: 40px;
   background-position: center;
   background-image: url("/src/assets/trash-nothover.png");
- 
+}
+.saved-card__delete-text {
+  position: absolute;
+  top: 24px;
+  padding: 11px 20px;
+  width: 142px;
+  line-height: 18px;
+  left: 145px;
+  margin: 0;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  font-weight: 500px;
+  cursor: pointer;
+  opacity: 0;
+  font-family: roboto, sans-serif;
+}
+.saved-card__delete-text:hover {
+  opacity: 1;
+  background-color: white;
 }
 .saved-card__delete-button:hover {
+  background-image: url("/src/assets/trash.png");
   opacity: 1;
   cursor: pointer;
-  background-image: url("/src/assets/trash.png");
+  z-index: 1;
 }
+
 .saved-card__info {
   display: flex;
   flex-grow: 1;
@@ -179,14 +215,14 @@
   .saved-news__info {
     padding: 0 40px;
   }
-  .saved-news__text  {
+  .saved-news__text {
     font-size: 30px;
     margin: 16px 0 16px 0;
   }
   .saved-news__keyword {
     margin-bottom: 16px;
   }
-  .saved-card__list-item{
+  .saved-card__list-item {
     width: 224px;
     height: 420px;
   }
@@ -203,7 +239,7 @@
     margin-left: 8px;
   }
 
-  .saved-card__delete-button{
+  .saved-card__delete-button {
     margin-top: 8px;
     margin-left: 176px;
   }

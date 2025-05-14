@@ -64,10 +64,10 @@
   cursor: pointer;
   font-weight: 500;
   background-color: #2f71e5;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .search__form-button:hover {
-  opacity: 1;
+  opacity: 3;
 }
 
 @media screen and (max-width: 544px) {

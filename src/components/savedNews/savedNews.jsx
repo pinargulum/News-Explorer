@@ -37,19 +37,23 @@ function SavedNews({
                     className="saved-card__list-item"
                     key={article.id}
                   >
+                    <div className="saved-card__delete-wrapper">
+                    <p className="saved-card__delete-text">
+                        Remove from saved
+                      </p>
+                      <button
+                        onClick={() => handleDeleteArticle(article.id)}
+                        type="button"
+                        className="saved-card__delete-button"
+                      ></button>
+                     
+                    </div>
                     <img
                       className="saved-card__image"
                       src={article.urlToImage || null}
                       alt={article.title}
                     />
                     <p className="saved-card__keyword">{article.keyword}</p>
-
-                    <button
-                      onClick={() => handleDeleteArticle(article.id)}
-                      type="button"
-                      className="saved-card__delete-button"
-                    ></button>
-
                     <div className="saved-card__info">
                       <h3 className="saved-card__date">
                         {article.publishedAt}
