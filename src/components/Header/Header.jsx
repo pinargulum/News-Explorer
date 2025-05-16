@@ -99,36 +99,36 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
               type="button"
             ></button>
           {isMenuOpen && (
-            <div className="mobile__menu">
+            <nav className="mobile__signed-menu">
               <button
                 onClick={closeMobileMenu}
-                className="mobile__close-button"
+                className="mobile__signed-close-button"
                 type="button"
               ></button>
-              <nav className="mobile__nav">
+            
               <Link
                 to="/"
-                className="mobile__home-link"
+                className="mobile__signed-home-link"
               >
                 Home
               </Link>
               <Link to="/saved-news"
-                className="mobile__saved-text">
+                className="mobile__signed-text">
                 Saved articles
               </Link>
               <button
-                className="mobile__logout"
+                className="mobile__signed-logout"
                 onClick={handleLogout}
               >
                 {currentUser}
                 <img
                   src={logout}
-                  className="mobile__logout-image"
+                  className="mobile__signed-logout-image"
                   alt="Mobile Logout"
                 />
               </button>
               </nav>
-            </div>
+           
           )}
         </>
       )}
