@@ -1,0 +1,50 @@
+.modal__content_type_signup {
+  position: relative;
+  border: solid 1px;
+  border-radius: 20px;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  height: 458px;
+  width: 430px;
+  padding: 12px 28px 36px 28px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+ 
+  color: black;
+}
+.modal__close_button_signup {
+  
+  border: none;
+  background-image: url("/src/assets/modalClose.png");
+  bottom: 470px;
+  left: 400px;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 500px) {
+  .modal__content_type_signup {
+    margin: 56px auto;
+    border: solid 1px;
+    border-radius: 15px 15px 0 0;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    height: 560px;
+    max-width: 318px;
+    padding: 0px 16px 0px 16px;
+  }
+  .modal__close_button_signup {
+    bottom: 520px;
+    left: 420px;
+    
+  }
+
+  .modal__submit-second-button {
+    width: 280px;
+    top: 280px;
+  }
+}
