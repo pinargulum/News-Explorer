@@ -1,13 +1,14 @@
 .modal__content_type_signin {
+  position: relative;
   border: solid 1px;
   border-radius: 16px;
   border-color: #ffffff;
   background-color: #ffffff;
   height: 380px;
-  width: 430px;
+  max-width: 430px;
+  width: 100%;
   padding: 0px 36px 0px 36px;
   box-sizing: border-box;
-  position: relative;
 }
 
 .modal__title {
@@ -77,11 +78,12 @@
 }
 @media screen and (max-width: 500px) {
   .modal__content_type_signin {
-    margin: 60px auto;
     padding: 0px 16px 0px 16px;
     border-radius: 15px 15px 0 0;
     height: 500px;
     max-width: 318px;
+    width: 100%;
+   
   }
 
   .modal__input {
@@ -101,6 +103,7 @@
     justify-content: center;
     font-size: 18px;
   }
+ 
   .modal__submit-second-button {
     width: 280px;
   }

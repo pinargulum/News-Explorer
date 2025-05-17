@@ -25,7 +25,8 @@
   border-color: #ffffff;
   background-color: #ffffff;
   height: 380px;
-  width: 430px;
+  max-width: 430px;
+  width: 100%;
   padding: 34px 36px;
   box-sizing: border-box;
 }
@@ -133,6 +134,14 @@
     bottom: 530px;
   }
     */
+    
+    .modal__content_type_form {
+      padding: 0px 16px 0px 16px;
+      border-radius: 15px 15px 0 0;
+      height: 500px;
+      max-width: 318px;
+      width: 100%;
+    }
   .modal__input {
     max-width: 280px;
   }
