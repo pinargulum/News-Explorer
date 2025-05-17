@@ -72,7 +72,6 @@
   border: none;
   padding-left: 76px;
   padding-right: 64px;
-
   color: white;
   font-size: 18px;
   font-weight: 500;
@@ -136,6 +135,7 @@
   }
   .header__logo {
     padding: 32px 0 26px 40px;
+    z-index: 1000;
   }
 
   .header__nav {
@@ -163,9 +163,10 @@
     display: none;
   }
   .header__logo {
+    color: white;
     font-size: 16px;
     padding: 16px 0 16px 16px;
-    z-index: 3;
+    z-index: 1000;
   }
   .menu__button {
     display: flex;
@@ -288,7 +289,6 @@
 
   .mobile__signed-home-link {
     margin-top: 72px;
-
     padding-left: 16px;
     z-index: 1000;
     color: white;
