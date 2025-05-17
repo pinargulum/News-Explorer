@@ -125,6 +125,12 @@
 }
 
 @media screen and (min-width: 562px) and (max-width: 1200px) {
+  .mobile__signed-menu,
+  .mobile__signed-close-button,
+  .mobile__signed-logout,
+  .header__sign-button {
+    display: none;
+  }
   .menu__button {
     display: none;
   }
@@ -149,7 +155,6 @@
     height: 56px;
   }
   .header__home-link,
-  .saved__artical-text,
   .user__container,
   .mobile__signed-menu,
   .mobile__signed-close-button,
