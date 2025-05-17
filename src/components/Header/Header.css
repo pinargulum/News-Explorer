@@ -126,8 +126,8 @@
 @media screen and (min-width: 562px) and (max-width: 1200px) {
   .mobile__signed-menu,
   .mobile__signed-close-button,
-  .mobile__signed-logout,
-  .header__sign-button {
+  .mobile__signed-logout
+  {
     display: none;
   }
   .menu__button {
