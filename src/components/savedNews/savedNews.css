@@ -129,9 +129,10 @@
   position: absolute;
   top: 24px;
   padding: 11px 20px;
-  width: 142px;
+  max-width: 107px;
+  width: 100%;
   line-height: 18px;
-  left: 145px;
+  left: 180px;
   margin: 0;
   text-align: center;
   border: none;
@@ -338,7 +339,10 @@
     margin-left: 240px;
     margin-top: 8px;
   }
-
+  .saved-card__delete-text { 
+left: 90px;
+top: 8px
+  }
   .saved-card__source {
     margin-bottom: 16px;
     padding: 0 16px;
