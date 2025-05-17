@@ -19,7 +19,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
     <header className="header">
       <h1 className="header__logo">NewsExplorer</h1>
       {!currentUser ? (
-       <>
+        <>
           <nav className="header__nav">
             <Link
               to="/"
@@ -40,7 +40,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
               type="button"
             ></button>
           </nav>
-          
+
           {isMenuOpen && (
             <div className="mobile__menu">
               <button
@@ -75,10 +75,11 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
             >
               Home
             </Link>
-            <Link 
-            to="/saved-news"
-            className="saved__artical-text">
-            Saved articles
+            <Link
+              to="/saved-news"
+              className="saved__artical-text"
+            >
+              Saved articles
             </Link>
             <button
               className="user__logout"
@@ -92,13 +93,12 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
                 alt="Logout"
               />
             </button>
-            
           </nav>
           <button
-              onClick={openMobileMenu}
-              className="menu__button"
-              type="button"
-            ></button>
+            onClick={openMobileMenu}
+            className="menu__button"
+            type="button"
+          ></button>
           {isMenuOpen && (
             <nav className="mobile__signed-menu">
               <button
@@ -106,15 +106,17 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
                 className="mobile__signed-close-button"
                 type="button"
               ></button>
-            
+
               <Link
                 to="/"
                 className="mobile__signed-home-link"
               >
                 Home
               </Link>
-              <Link to="/saved-news"
-                className="mobile__signed-text">
+              <Link
+                to="/saved-news"
+                className="mobile__signed-text"
+              >
                 Saved articles
               </Link>
               <button
@@ -128,8 +130,7 @@ function Header({ signinModal, isLoggedIn, handleLogout }) {
                   alt="Mobile Logout"
                 />
               </button>
-              </nav>
-           
+            </nav>
           )}
         </>
       )}

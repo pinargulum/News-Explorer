@@ -83,7 +83,6 @@
     height: 500px;
     max-width: 318px;
     width: 100%;
-   
   }
 
   .modal__input {
@@ -103,7 +102,7 @@
     justify-content: center;
     font-size: 18px;
   }
- 
+
   .modal__submit-second-button {
     width: 280px;
   }

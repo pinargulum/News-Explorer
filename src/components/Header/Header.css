@@ -8,7 +8,6 @@
   border-bottom: solid 1px;
   border-bottom-color: light grey;
   margin: 0 auto;
-
 }
 .header__logo {
   color: white;
@@ -20,7 +19,7 @@
 }
 .header__nav {
   display: flex;
- 
+
   flex-direction: row;
   align-items: center;
   color: white;
@@ -132,10 +131,10 @@
   .header__logo {
     padding: 32px 0 26px 40px;
   }
- 
+
   .header__nav {
     margin-right: 40px;
-   
+
     font-size: 16px;
   }
   .user__container {
@@ -176,7 +175,6 @@
     background-image: url("/src/assets/icon.png");
     background-repeat: no-repeat;
   }
-  
 
   .mobile__menu {
     display: flex;
@@ -282,10 +280,10 @@
     background-image: url("/src/assets/menuClose.png");
     background-repeat: no-repeat;
   }
-  
+
   .mobile__signed-home-link {
     margin-top: 72px;
-   
+
     padding-left: 16px;
     z-index: 1000;
     color: white;

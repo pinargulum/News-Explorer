@@ -38,7 +38,7 @@ function SavedNews({
                     key={article.id}
                   >
                     <div className="saved-card__delete-wrapper">
-                    <p className="saved-card__delete-text">
+                      <p className="saved-card__delete-text">
                         Remove from saved
                       </p>
                       <button
@@ -46,7 +46,6 @@ function SavedNews({
                         type="button"
                         className="saved-card__delete-button"
                       ></button>
-                     
                     </div>
                     <img
                       className="saved-card__image"

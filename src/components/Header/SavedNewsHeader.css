@@ -129,6 +129,9 @@
   .saved__artical-text,
   .saved__user-logout,
   .saved__header-link,
+  .saved__mobile-close-button,
+  .saved__mobile-saved-text,
+  .saved__mobile-logout,
   .header__sign-button {
     display: none;
   }
