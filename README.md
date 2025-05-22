@@ -29,7 +29,7 @@ Welcome to my final project for the TripleTen Software Engineering Bootcamp.
 - **CSS (Flexbox + Media Queries)**
 
 - **Vite**
-- 
+  
 - **Git & GitHub**
 ## Project Links
 - **Frontend:** [https://pinargulum.github.io/News-Explorer/](https://pinargulum.github.io/News-Explorer/)
