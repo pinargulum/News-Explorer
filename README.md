@@ -1,23 +1,35 @@
-# News Explorer
+# News Explorer – Final Project
 
-This is a news searching and saving application built with React and Vite. 
-The backend uses a proxy server (deployed separately) to interact with the News API.
+Welcome to my final project for the TripleTen Software Engineering Bootcamp.  
 
-## Features
-- Search for news articles on any topic
-- Save favorite articles to your account
-- Responsive and modern design
-- Deployed on GitHub Pages
-- Proxy server deployed on Render
+**News Explorer** is a responsive, full-stack web application that allows users to search for news articles, save them to their personal collection, and manage them securely using Firebase.
 
+## 🔍 Features
+
+- **User Authentication** with Firebase (Sign Up / Sign In / Log Out)
+
+- **Search functionality** using the News API
+
+- **Save & delete articles** to/from your personal collection
+
+- **Responsive design** for all screen sizes (320px – 1440px)
+
+- **Protected routes** for saved articles (only visible to signed-in users)
+
+- **Clean UI** with semantic HTML and accessible design
+
+## 🚀 Technologies
+
+- **React**
+
+- **JavaScript (ES6+)**
+
+- **Firebase (Authentication & Firestore)**
+
+- **CSS (Flexbox + Media Queries)**
+
+- **Vite**
+- 
+- **Git & GitHub**
 ## Project Links
 - **Frontend:** [https://pinargulum.github.io/News-Explorer/](https://pinargulum.github.io/News-Explorer/)
-
-
-## Technologies Used
-- React
-- Vite
-- JavaScript (ES6+)
-- HTML5, CSS3
-- GitHub Pages for frontend deployment
-- Render for backend deployment
