@@ -1,12 +1,23 @@
-# React + Vite
+# News Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a news searching and saving application built with React and Vite. 
+The backend uses a proxy server (deployed separately) to interact with the News API.
 
-Currently, two official plugins are available:
+## Features
+- Search for news articles on any topic
+- Save favorite articles to your account
+- Responsive and modern design
+- Deployed on GitHub Pages
+- Proxy server deployed on Render
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Links
+- **Frontend:** [https://pinargulum.github.io/News-Explorer/](https://pinargulum.github.io/News-Explorer/)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+- React
+- Vite
+- JavaScript (ES6+)
+- HTML5, CSS3
+- GitHub Pages for frontend deployment
+- Render for backend deployment

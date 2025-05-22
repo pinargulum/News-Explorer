@@ -1,0 +1,40 @@
+.modal_content_type_confirmation {
+  margin: 207px auto;
+  border: solid 1px;
+  border-radius: 16px;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  height: 182px;
+  width: 430px;
+  padding-left: 36px;
+  box-sizing: border-box;
+  position: relative;
+}
+.confirmation__title {
+  margin-top: 48px;
+  font-size: 24px;
+  width: 305px;
+  height: 56px;
+}
+.confirmation__signin-button {
+  display: flex;
+  position: absolute;
+  padding: 0;
+  top: 113px;
+  margin: 0;
+  color: #2f71e5;
+  size: 18px;
+  border: none;
+  background-color: transparent;
+}
+.modal__close-button_confirmation_form {
+  position: relative;
+  border: none;
+  background-image: url("/src/assets/modalClose.png");
+  top: -175px;
+  left: 400px;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
