@@ -1,8 +1,6 @@
-# News Explorer – Final Project
+# News Explorer
 
-Welcome to my final project for the TripleTen Software Engineering Bootcamp.  
-
-**News Explorer** is a responsive, full-stack web application that allows users to search for news articles, save them to their personal collection, and manage them securely using Firebase.
+News Explorer is a responsive, full-stack web application that allows users to search for news articles, save them to their personal collection, and manage them securely using Firebase.
 
 ## 🔍 Features
 
